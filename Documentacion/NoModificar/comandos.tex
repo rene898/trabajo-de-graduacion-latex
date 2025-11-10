@@ -1,0 +1,554 @@
+
+\glssetexpandfield{desc} %Comando para expandir otros comandos en la descripcion de los glosarios
+\glssetexpandfield{name} %Comando para expandir otros comandos en el nombre de los glosarios
+%==========================CONTADORES==============================%
+%Se crea nuevo contador que se utiliza para agregar las letras correspondientes a los anexos
+\newcounter{anexosletra}
+
+%Se establece 1 como el valor inicial del contador
+\setcounter{anexosletra}{1}
+
+%Se crea el contador que se utiliza para agregar el numero correlativo de las secciones dentro de un anexo
+\newcounter{anexosseccion}
+
+%Se crea el contador que se utiliza para agregar el numero correlativo de una subseccion dentro de un anexo
+\newcounter{anexossubseccion}
+
+%Se crea el contador que se utiliza para llevar la cuenta de cuantos autores han sido ingresados en la primera portada, esto sirve para saber si la mayoria son hombres o mujeres y tambien para establecer un maximo de cuatro autores
+\newcounter{contadorautor}
+
+%Se establece el valor inicial 0 para el contador de autores
+\setcounter{contadorautor}{0}
+
+%Se crea el contador que se utiliza para llevar la cuenta de cuantos autores son hombres
+\newcounter{contadorhombres}
+
+%Se establece el valor inicial 0 para el contador de hombres
+\setcounter{contadorhombres}{0}
+
+%Se crea el contador que se utiliza para llevar la cuenta de cuantos autores son mujeres
+\newcounter{contadormujeres}
+
+%Se establece el valor inicial 0 para el contador de mujeres
+\setcounter{contadormujeres}{0}
+
+%
+\newcounter{resultadosexosautores}
+\setcounter{resultadosexosautores}{0}
+
+\newcounter{figuras}
+\setcounter{figuras}{0}
+
+%===========================COMANDOS=============================%
+
+%Este comando verifica que el parametro que le pasaron este vacio o no
+\newcommand{\verificarvacio}[3]{
+    \ifdefined #1
+        \ifthenelse{\equal{#1}{}}{%
+        %Si esta vacio muestra un mensaje de advertencia en mayuscula y de color rojo
+        \textcolor{red}{\MakeUppercase{#2}}%
+        }{
+        %Si no esta vacio entonces muestra el texto del parametro en mayuscula
+        \MakeUppercase{#1}
+        }
+    \else
+        \textcolor{red}{\MakeUppercase{#3}}
+    \fi
+}
+
+% Estos comandos guardan los nombres de los integrantes del grupo, el comando autorA corresponde al primer autor, autorB corresponse al segundo autor, autorC corresponde al tercer autor y autorD corresponde al cuarto autor
+\newcommand{\autorA}{}
+\newcommand{\autorB}{}
+\newcommand{\autorC}{}
+\newcommand{\autorD}{}
+
+%El comando autor se encarga de agregar los nombres de los autores en los comandos anteriores
+\newcommand{\autor}[2]{
+    %Se verifica cuantas veces se a utilizado el comando autor, si se ha hecho menos de cuatro veces entonces todavia se pueden agregar mas autores, si se ha hecho igual o mas de cuatro veces entonces ya no se puede agregar mas autores
+    \ifthenelse{\value{contadorautor} < 4}{
+        %El contador "contadorautor" sirve para llevar la cuenta de cuantos autores se han ingresado, el comando \ifcase sirve para verificar que valor tiene el contador en ese momento y en base a eso hacer una acción u otra.
+        \ifcase\value{contadorautor}%
+            %Si el contador es 0 no se ha ingresado ningun autor todavia, por lo tanto se agrega el nombre al comando autorA
+            \renewcommand{\autorA}{#1}
+        \or%
+            %Si el contador es 1 se ha ingresado ya un autor, por lo tanto se agrega el nombre al comando autorB
+            \renewcommand{\autorB}{#1}
+        \or%
+            %Si el contador es 2 se han ingresado dos autores, por lo tanto se agrega el nombre al comando autorC
+            \renewcommand{\autorC}{#1}
+        \or%
+            %Si el contador es 3 se han ingresado tres autores, por lo tanto se agrega el nombre al comando autorD
+            \renewcommand{\autorD}{#1}
+        \fi
+
+        %Se valida que el sexo ingresado para cada un autor sea hombre o mujer, si es mujer el contador "contadormujeres" incrementa en 1, si en hombre el contador "contadorhombres incrementa en 1
+        \ifthenelse{\equal{#2}{M}}{
+            \stepcounter{contadormujeres}
+        }{
+            \stepcounter{contadorhombres}
+        }
+
+        %Se incrementa en 1 el contador "contadorautor" al final del comando
+        \stepcounter{contadorautor}
+    }{
+    
+    }
+}
+
+%Este comando sirve para verificar el numero de mujeres y hombres en el grupo de trabajo ya que es necesario para escribir el grado a optar en la primera portada del trabajo
+\newcommand{\verificarsexoautores}{
+    \ifthenelse{\equal{\value{contadormujeres}}{0}}{
+        %Si no hay mujeres en el grupo entonces el valor del contador resultadosexosautores es 1
+        \setcounter{resultadosexosautores}{1}
+    }{
+        \ifthenelse{\equal{\value{contadorhombres}}{0}}{
+            %Si no hay hombres en el grupo entonces el valor del contador resultadosexosautores es 2
+            \setcounter{resultadosexosautores}{2}
+        }{
+            \ifthenelse{\value{contadorhombres} > \value{contadormujeres} }{
+                %Si hay mas hombres que mujeres entonces el valor de resultadosexosautores es 3
+                \setcounter{resultadosexosautores}{3}
+            }{
+                \ifthenelse{\value{contadormujeres} > \value{contadorhombres}}{
+                    %Si hay mas mujeres que hombres entonces el valor de resultadosexosautores es 4
+                    \setcounter{resultadosexosautores}{4}
+                }{
+                    \ifthenelse{\equal{\value{contadorhombres}}{\value{contadormujeres}}}{
+                        %Si hay igual numero de mujeres que de hombres el valor del contadore resultadosexosautores es 5
+                        \setcounter{resultadosexosautores}{5}
+                    }{
+                    
+                    }
+                }
+            }
+        }
+    }
+}
+
+%Valor booleano para saber si ya se ingreso alguna entrada a las siglas o no
+\newcommand{\ningunasiglaingresada}{true} 
+
+%Este comando sirve para agregar nuevas siglas a la seccion de siglas
+\newcommand{\itemsiglas}[2]{%
+    %Valida que se agreguen entradas a las siglas solo si los dos parametros del comando \itemsiglas han sido llenados, si no han sido llenados no se agreaga ninguna sigla nueva
+    \ifthenelse{\equal{#1}{} \or \equal{#2}{}}{ 
+    
+    }{
+    %Si los dos parametros fueron agregados entonces se ingresa la nueva sigla y \ningunasiglaingresada cambia a falso
+        \renewcommand{\ningunasiglaingresada}{false}
+        \newglossaryentry{#1}{name={#1}, type=siglas, description={#2}}%
+    }
+}
+
+%Valor booleano para saber si ya se ingreso alguna entrada a las abreviaturas o no
+\newcommand{\ningunaabreviaturaingresada}{true} 
+
+%Este comando sirve para agregar nuevas abreviaturas a la sección de abreviaturas
+\newcommand{\itemabreviatura}[2]{
+    %Valida que se agreguen entradas a las abreviaturas solo silos dos parametros del comando \itemabreviatura han sido llenados, si no han sido llenados no se agreaga ninguna abreviatura nueva
+    \ifthenelse{\equal{#1}{} \or \equal{#2}{}}{  
+    }{
+    %Si los dos parametros fueron agregados entonces se ingresa la nueva abreviatura y \ningunaabreviaturaingresada cambia a falso
+        \renewcommand{\ningunaabreviaturaingresada}{false}
+        \newglossaryentry{#1}{name={#1}, type=abreviaturas, description={#2}}%
+    }
+    
+}
+
+%Valor booleano para saber si ya se ingreso alguna entrada a la nomenclatura o no
+\newcommand{\ningunanomenclaturaingresada}{true}
+
+%Este comando sirve para agregar un nuevo elemento a la sección de nomenclatura
+\newcommand{\itemnomenclatura}[2]{%
+    %Valida que se agreguen entradas a la nomenclatura solo silos dos parametros del comando \itemnomenclatura han sido llenados, si no han sido llenados no se agreaga ninguna nomenclatura nueva
+    \ifthenelse{\equal{#1}{} \or \equal{#2}{}}{       
+    }{
+    %Si los dos parametros fueron agregados entonces se ingresa la nueva nomenclatura y \ningunanomenclaturaingresada cambia a falso
+        \renewcommand{\ningunanomenclaturaingresada}{false}
+        \newglossaryentry{#2}{name={#1}, type=nomenclatura, description={#2}}%
+    }
+}
+
+%Valor booleano para saber si ya se ingreso alguna entrada al glosario o no
+\newcommand{\glosariovacio}{true} 
+
+%Este comando sirve para agregar nuevas palabras al glosario
+\newcommand{\itemglosario}[2]{%
+    %Valida que se agreguen entradas al glosario solo si los dos parametros del comando \glosario han sido llenados, si no han sido llenados no se agreaga ninguna entrada al glosario nueva
+    \ifthenelse{\equal{#1}{} \or \equal{#2}{}}{ 
+        
+    }{
+    %Si los dos parametros fueron agregados entonces se ingresa la nueva
+    %entrada del glosario y \glosariovacio cambia a falso
+        \renewcommand{\glosariovacio}{false}
+        \newglossaryentry{#1}{name={#1}, type=glosario, description={#2}}%
+    }
+}
+
+
+%Este comando esta creado para hacer uno o dos saltos de pagina dependiendo de si la seccion termina en pagina impar o par
+\newcommand{\paroimpar}[1]{
+    \pgfmathparse{mod(#1,2)}
+    \edef\resultado{\pgfmathresult}% Almacenar el resultado como una macro expandida
+
+    \ifthenelse{\equal{\resultado}{0.0}}{
+        \newpage
+    }{
+        \newpage
+        \null\thispagestyle{empty}
+        \newpage
+    }
+}
+
+%Comando utilizado para crear los capitulos
+\newcommand{\capitulo}[2]{
+    \begin{capituloentorno}
+    {
+        #1
+    }{
+        #2
+    }
+    \end{capituloentorno}
+}
+
+%Valor booleano para saber si ya se agrego una imagen al documento o no
+\newcommand{\ningunaimageningresada}{true}
+
+% Se crea nuevo comando que establece el formato de las figuras
+\newcommand{\imagen}[6]{
+    \renewcommand{\ningunaimageningresada}{false}
+    %Se valida si existe alguna imagen con el nombre proporcionado
+    \IfFileExists{img/#1}{
+        %Se cambia el valor del comando ningunaimageningresada a false
+        \renewcommand{\ningunaimageningresada}{false}
+        %\stepcounter{figuras}
+        %Si el cuarto parametro del comando es V significa que se quiere mostrar la imagen en formato vertical.
+        \ifthenelse{\equal{#6}{V}}{
+            %Se valida que el tercer parametro no este vacio, el tercer parametro corresponde a la escala que tendra la figura, si el parametro esta vacío entonces se coloca 1 por defecto
+            \ifthenelse{\equal{#5}{}}{
+                \begin{figure}[H]
+                \vspace{2\baselineskip}
+                \centering
+                \includegraphics[scale=1]{img/#1}
+                \ifthenelse{\equal{#3}{true}}{
+                    \caption[#2]{#2. Adaptado de: [#4]}
+                }{
+                    \caption[#2]{#2. Fuente: [#4]}
+                }
+                \label{fig:#1}
+                \end{figure}
+            }{
+            %Si no esta vacio entonces se coloca el valor que se escribio en el tercer parametro
+                \begin{figure}[H]
+                \vspace{2\baselineskip}
+                \centering
+                \includegraphics[scale=#5]{img/#1}
+                \ifthenelse{\equal{#3}{true}}{
+                    \caption[#2]{#2. Adaptado de: [#4]}
+                }{
+                    \caption[#2]{#2. Fuente: [#4]}
+                }
+                \label{fig:#1}
+                \end{figure}
+            }    
+        }{
+        %Si el cuarto parametro es H significa que la figura se mostrara de manera horizontal
+        \ifthenelse{\equal{#6}{H}}{
+            \begin{sidewaysfigure}
+                \includegraphics[width=\linewidth]{img/#1}
+                \ifthenelse{\equal{#3}{true}}{
+                    \caption[#2]{#2. Adaptado de: [#4]}
+                }{
+                    \caption[#2]{#2. Fuente: [#4]}
+                }
+                \label{fig:#1}
+            \end{sidewaysfigure}
+        }{
+        \textcolor{red}{\MakeUppercase{ERROR: el parametro para la orientacion de la imagen solo puede ser 'H' para horizontal y 'V' para vertical}}
+        }
+        }
+    }{
+        \textcolor{red}{\MakeUppercase{ERROR: la imagen con nombre #1 no existe}}
+    }
+}
+
+%Este comando sirve para escribir la carrera que se esta cursando de la manera correcta en la primera porta validando la cantidad de mujeres y hombres en el grupo
+\newcommand{\determinarcarrera}[2]{
+    %Si el segundo parametro del comando es 1 significa que se inserata el nombre de la carrera en la segunda portada en la parte del director de carera
+    \ifthenelse{\equal{#2}{1}}{%
+        %El primer parametro indica la carrera que se esta cursando
+        \ifcase #1%
+            INGENIERÍA INFORMÁTICA%
+        \or%
+            INGENIERÍA CIVIL%
+        \or%
+            INGENIERÍA ELÉCTRICA%
+        \or%
+            INGENIERÍA ENERGÉTICA%
+        \or%
+            INGENIERÍA DE ALIMENTOS%
+        \or%
+            INGENIERÍA QUÍMICA%
+        \or%
+            INGENIERÍA MECÁNICA%
+        \or%
+            INGENIERÍA INDUSTRIAL%
+        \or%
+            ARQUITECTURA%
+        \or%
+            LICENCIATURA EN DISEÑO%
+        \else%
+            \textcolor{red}{ERROR: NO SE HA INGRESADO UN NUMERO VALIDO PARA LA CARRERA}%
+        \fi%
+    }{%
+    %Si el segundo parametro no es 1 significa que se esta insertando el nombre de la carrera en la parte donde se menciona el grado que se quiere obtener en la primera portada
+
+    %Si el valor del contador resultadosexosautores es 1 entonces solamente hay hombres en el grupo y se pone de la siguiente manera
+    \ifthenelse{\equal{\value{resultadosexosautores}}{1}}{
+        \ifcase #1%
+            INGENIERO INFORMÁTICO\\%
+        \or%
+            INGENIERO CIVIL\\%
+        \or%
+            INGENIERO ELECTRICISTA\\%
+        \or%
+            INGENIERO ENERGÉTICO\\%
+        \or%
+            INGENIERO DE ALIMENTOS\\%
+        \or%
+            INGENIERO QUÍMICO\\%
+        \or%
+            INGENIERO MECÁNICO\\%
+        \or%
+            INGENIERO INDUSTRIAL\\%
+        \or%
+            ARQUITECTO\\%
+        \or%
+            LICENCIADO EN DISEÑO\\%
+        \else%
+            \textcolor{red}{ERROR: NO SE HA INGRESADO UN NUMERO VALIDO PARA LA CARRERA}%
+        \fi%
+    }{
+            %Si el valor del contador "resultadosexosautores" es 2 entonces solamente hay mujeres en el grupo y se pone de la siguiente manera
+            \ifthenelse{\equal{\value{resultadosexosautores}}{2}}{
+            \ifcase #1%
+                INGENIERA INFORMÁTICA\\%
+            \or%
+                INGENIERA CIVIL\\%
+            \or%
+                INGENIERA ELECTRICISTA\\%
+            \or%
+                INGENIERA ENERGÉTICA\\%
+            \or%
+                INGENIERA DE ALIMENTOS\\%
+            \or%
+                INGENIERA QUÍMICA\\%
+            \or%
+                INGENIERA MECÁNICA\\%
+            \or%
+                INGENIERA INDUSTRIAL\\%
+            \or%
+                ARQUITECTA\\%
+            \or%
+                LICENCIADA EN DISEÑO\\%
+            \else%
+                \textcolor{red}{ERROR: NO SE HA INGRESADO UN NUMERO VALIDO PARA LA CARRERA}%
+            \fi%
+        }{
+            %Si hay mas mujeres que hombres en el grupo entonces el valor del contador "resultadosexosautores" es 3 y se escribe de la siguiente manera 
+            \ifthenelse{\equal{\value{resultadosexosautores}}{3} \or \equal{\value{resultadosexosautores}}{5}}{
+                \ifcase #1%
+                    INGENIERO(A) INFORMÁTICO(A)\\%
+                \or%
+                    INGENIERO(A) CIVIL\\%
+                \or%
+                    INGENIERO(A) ELECTRICISTA\\%
+                \or%
+                    INGENIERO(A) ENERGÉTICO(A)\\%
+                \or%
+                    INGENIERO(A) DE ALIMENTOS\\%
+                \or%
+                    INGENIERO(A) QUÍMICO(A)\\%
+                \or%
+                    INGENIERO(A) MECÁNICO(A)\\%
+                \or%
+                    INGENIERO(A) INDUSTRIAL\\%
+                \or%
+                    ARQUITECTO(A)\\%
+                \or%
+                    LICENCIADO(A) EN DISEÑO\\%
+                \else%
+                    \textcolor{red}{ERROR: NO SE HA INGRESADO UN NUMERO VALIDO PARA LA CARRERA}%
+                \fi%
+            }{
+                %Si hay mas mujeres que hombres entonces el valor del contador "resultadosexosautores" es 4 y se escribe de la siguiente forma
+                \ifthenelse{\equal{\value{resultadosexosautores}}{4}}{%
+                \ifcase #1%
+                    INGENIERA(O) INFORMÁTICA(O)\\%
+                \or%
+                    INGENIERA(O) CIVIL\\%
+                \or%
+                    INGENIERA(O) ELECTRICISTA\\%
+                \or%
+                    INGENIERA(O) ENERGÉTICA(O)\\%
+                \or%
+                    INGENIERA(O) DE ALIMENTOS\\%
+                \or%
+                    INGENIERA(O) QUÍMICA(O)\\%
+                \or%
+                    INGENIERA(O) MECÁNICA(O)\\%
+                \or%
+                    INGENIERA(O) INDUSTRIAL\\%
+                \or%
+                    ARQUITECTA(O)\\%
+                \or%
+                    LICENCIADA(O) EN DISEÑO\\%
+                \else%
+                    \textcolor{red}{ERROR: NO SE HA INGRESADO UN NUMERO VALIDO PARA LA CARRERA}%
+                \fi%
+            }{}
+            }
+        }
+    } 
+    }
+}
+
+%Valor booleano para validar si ninguna tabla ha sido ingresada
+\newcommand{\ningunatablaingresada}{true}
+
+%Este comando sirve para insertar una tabla en el documento utlizando el formato requerido
+\newcommand{\tabla}[2]{
+    %El valor del comando "ningunatablaingresada" cambia a false y que se esta ingresando una tabla
+    \renewcommand{\ningunatablaingresada}{false}
+    %Se valida si la tabla se esta ingresando de forma vertical u horizontal
+    \ifthenelse{\equal{#1}{V}}{
+        #2
+    }{
+    \ifthenelse{\equal{#1}{H}}{
+        \begin{landscape}
+            #2
+        \end{landscape}
+    }{
+    \textcolor{red}{\MakeUppercase{ERROR: el parametro para la orientacion de la tabla solo puede ser 'H' para horizontal y 'V' para vertical}}
+    }
+    }
+}
+
+%Este comando se encarga de crear la portada de un anexo
+\newcommand{\portadanexo}[1]{
+    \thispagestyle{empty}
+    \vspace*{\fill}
+    {\centering{\fontsize{20}{0}\selectfont ANEXO \, \MakeUppercase{\alph{anexosletra}\\}}
+    {\fontsize{16}{24}\selectfont \MakeUppercase{#1}\\}}
+    \vspace*{\fill}
+    \newpage
+    \null
+    \thispagestyle{empty}
+    \newpage
+}
+
+%Este comando crea el cuerpo de un anexo
+\newenvironment{cuerpoanexo}[1]{
+    \setlength{\parskip}{\baselineskip}
+    \setcounter{page}{1}
+    \renewcommand{\thepage}{\MakeUppercase{\alph{anexosletra}}-\arabic{page}}
+    #1
+    \newpage
+}{
+   
+}
+
+%Este comando sirve para crear un anexo
+\newcommand{\anexo}[2]{
+    \chapter*{\phantom{Anexo \theanexosletra}}
+    \setcounter{numeroimagenesanexos}{1}
+    \setcounter{anexosseccion}{0}
+    
+    \addtocontents{toc}{%
+      ANEXO \MakeUppercase{\alph{anexosletra}}.\hspace{1em}%
+      \parbox[t]{380pt}{\strut#1\strut}\\
+    }
+    \portadanexo{#1}
+    \begin{cuerpoanexo}{
+        #2
+    }
+    
+    \end{cuerpoanexo}
+    \stepcounter{anexosletra}
+
+}
+
+%Este comando sirve para agregar imagenes en los anexos utilizando el formato adecuado
+\newcommand{\imagenanexo}[4]{
+    \IfFileExists{img/#1}{
+        \ifthenelse{\equal{#4}{V}}{
+            \ifthenelse{\equal{#3}{}}{
+                \begin{figure}[H]
+                \vspace{2\baselineskip}
+                \centering
+                \includegraphics[scale=1]{img/#1}
+                \caption*{Figura \Alph{anexosletra}.\arabic{numeroimagenesanexos} #2}
+                \label{fig:#1}
+                \end{figure}
+            }{
+                \begin{figure}[H]
+                \vspace{2\baselineskip}
+                \centering
+                \includegraphics[scale=#3]{img/#1}
+                \caption*{Figura \Alph{anexosletra}.\arabic{numeroimagenesanexos} #2}
+                \label{fig:#1}
+                \end{figure}
+            }    
+        }{
+        \ifthenelse{\equal{#4}{H}}{
+            \begin{sidewaysfigure}
+                \centering
+                \includegraphics[width=\linewidth]{img/#1}
+                \caption*{Figura \Alph{anexosletra}.\arabic{numeroimagenesanexos} #2}
+                \label{fig:#1}
+            \end{sidewaysfigure}
+        }{
+        \textcolor{red}{\MakeUppercase{ERROR: el parametro para la orientacion de la imagen solo puede ser 'H' para horizontal y 'V' para vertical}}
+        }
+        }
+        \stepcounter{numeroimagenesanexos}
+    }{
+        \textcolor{red}{\MakeUppercase{ERROR: la imagen con nombre #1 no existe}}
+    }
+}
+
+%Este comando sirve para hacer referencia a una figura utilizando el formato correcto
+\newcommand{\reffig}[1]{
+    Figura \ref{fig:#1}%
+}
+
+%Este comando sirve para hace referencia a una tabla utilizando el formato correcto
+\newcommand{\reftab}[1]{
+    Tabla \ref{#1}%
+}
+
+%Este comando permite agregar secciones en los anexos con el formato correcto
+\newcommand{\sectionanexo}[1]{
+    \stepcounter{anexosseccion}%\\
+    \textbf{\Alph{anexosletra}.\theanexosseccion \, #1}%\\
+    %\\
+    \setcounter{anexossubseccion}{0}
+}
+
+%Este comando sirve para escribir una subseccion en los aexos utilizando el formato adecuado
+\newcommand{\subsectionanexo}[1]{
+    \stepcounter{anexossubseccion}
+    \textbf{\Alph{anexosletra}.\theanexosseccion.\theanexossubseccion \, #1}%\\
+    %\\
+}
+
+%Este comando sirve para escribir la fuente de las tablas de manera apropiada
+\newcommand{\fuentetabla}[1]{
+    \caption*{Fuente: [#1]}
+}
+
+%Este comando sirve para escribir el epigrafe de una tabla que continua en la pagina siguiente y por lo tanto se debe colocar la palabra continución
+\newcommand{\captioncontinuacion}[1]{
+    \caption*{Tabla \thetable \, #1 (continuación)}
+}
+

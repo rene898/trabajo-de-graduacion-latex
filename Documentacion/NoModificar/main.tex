@@ -1,0 +1,286 @@
+\documentclass[letterpaper, twoside, openright]{report} % Documento en formato carta
+\usepackage[utf8]{inputenc} % Permite caracteres especiales
+\usepackage{graphicx} % Paquete para insertar imágenes
+\usepackage{setspace} % Paquete para modificar el interlineado
+\usepackage{ifthen} % Paquete para usar condicionales
+\usepackage{times} % Paquete para usar la fuente Times New Roman
+\usepackage{geometry} % Paquete para ajustar márgenes
+\usepackage{tocloft} % Paquete para modificar la tabla de contenido
+%\usepackage{showframe} % Paquete para mostrar un borde en la pagina
+\usepackage{titlesec} % Paquete para modificar el encabezado de una seccion
+\usepackage{longtable} % Paquete para crear tablas que se repitan en la siguiente pagina y que se repita el encabezado
+\usepackage{fix-cm} % Paquete para poder escribir cualquier tamaño de fuente
+\usepackage[backend=biber,style=apa,language=spanish]{biblatex} % Paquete para poder escrbir referencias y citar
+\usepackage{emptypage} % Paquete para detectar las paginas en blanco y eliminar el numero de pagina en esas paginas
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage[figuresright]{rotating} % paquete para girar figuras y tablas
+\usepackage{amsmath, amssymb} % Paquete usado para redefinir contadores
+\usepackage{caption} % Para personalizar epígrafes
+\usepackage{float} % Paquete para controlar la ubicación de la imagen
+\usepackage{enumitem}% Paquete para modificar formato de las listas
+\usepackage{xstring}% Paquete para manipular cadenas de caracteres
+\usepackage[nonumberlist, nogroupskip, nopostdot, nomain]{glossaries}% Paquete para crear glosarios
+\usepackage{lscape}% Paquete para girar 90 grados las tablas
+\usepackage{pgffor}
+
+
+%=================Modificacion de formato de índice=============%
+
+\renewcommand{\cftchapfont}{} %Elimina la negrita por defecto de los capitulos del indice
+
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} %Agrega puntos en el espacio entre el nombre del capitulo y el numero de pagina
+
+\setlength{\cftbeforechapskip}{0pt} %Elimina la sangria de los capitulos en el indice
+ 
+\setlength{\cftchapnumwidth}{0pt} %Elimina identacion cuando el nombre de capitulo ocupa mas de una linea en el indice
+
+\renewcommand{\cftchappagefont}{} %Elimina la negrita en el numero de pagina del capitulo
+
+\setlength{\cftaftertoctitleskip}{0pt} % Elimina espacio extra entre titulo del índice y primera seccion del índice
+
+\renewcommand{\cftdotsep}{0.5} % Modifica la cantidad de puntos que separan el nombre de la seccion con el numero de pagina en la tabla de contenido
+
+%==========Modificacion de formato de indice de figuras==========%
+
+\setlength{\cftafterloftitleskip}{0pt} % Elimina espacio extra entre titulo del índice de figuras y primera entrada del índice
+
+\setlength{\cftfigindent}{0pt} % Elimina identado por defecto en las entradas del indice de figuras
+
+\renewcommand{\cftfigpresnum}{Figura~} %Agrega la palabra "Figura" al inicio de cada una de las entradas del indice de figuras
+
+\setlength{\cftfignumwidth}{1.8cm} %Espacio reservado para la palabra "Figura" junto con el numero del capitulo y numero correlativo
+
+%=========Modificacion de formato de indice de tablas============%
+
+\setlength{\cftafterlottitleskip}{0pt} % Elimina espacio extra entre el titulo del índice de tablas y la primera entrada del índice
+
+\setlength{\cfttabindent}{0pt} % Elimina identado por defecto en las entradas del índice de tablas
+
+\renewcommand{\cfttabpresnum}{Tabla~} %Agrega la palabra "Tabla" al inicio de cada entrada del inidice de tablas
+
+\setlength{\cfttabnumwidth}{1.6cm} %Espacio reservado para la palabra "Tabla" junto con el numero del capitulo y numero correlativo
+
+%============Modificacion de formato de ecuaciones==============%
+
+\setlength{\intextsep}{0pt} % Eliminar espacio extra entre texto y elementos flotantes, incluye a las figuras y ecuaciones
+
+\setlength{\abovedisplayskip}{0pt} % Espacio antes de ecuaciones
+
+\setlength{\belowdisplayskip}{0pt} % Espacio después de ecuaciones
+
+\setlength{\abovedisplayshortskip}{0pt} % Espacio antes de ecuaciones tras una línea corta
+
+\setlength{\belowdisplayshortskip}{0pt} % Espacio después de ecuaciones tras una línea corta
+
+\renewcommand{\theequation}{\text{Ec.}~\arabic{chapter}.\arabic{equation}} %Comando que agrega el texto "Ec." antes del numero de la ecuacion
+
+
+%=============Cargar de datos del archivo separado===============%
+
+\input{entornos.tex}%Entornos de las diferentes partes del documento
+
+%=========================Margenes===============================%
+
+\geometry{
+    left=2.5cm, %Margen izquierdo
+    right=2.5cm, %Margen derecho
+    top=2.5cm, %Margen superior
+    bottom=2.5cm, %Margen inferior
+    bindingoffset=1cm %Borde de encuadernacion
+}
+
+%===========Modificacion del formato de las secciones============%
+%========================Y subsecciones==========================%
+ 
+ \titlespacing*{\section}{0pt}{0pt}{0pt} % Elimina el espacio adicional en la parte superior, inferior y lateral izquierda de las secciones.
+\titlespacing*{\subsection}{0pt}{0pt}{0pt} % Elimina el espacio adicional en la parte superior, inferior y lateral izquierdo de las subsecciones
+\setlength{\parindent}{0pt} % Elimina la identacion adicional de las secciones y subsecciones
+
+\titleformat{\section} % Redefinir el formato de las secciones
+  {\fontsize{11}{16.5}\selectfont\bfseries} % Cambiar tamaño de fuente de las secciones
+  {\thesection} % Cómo mostrar el número de la sección
+  {1em} % Espaciado entre el número y el título
+  {} % Código adicional antes del título (en este caso, nada)
+
+  \titleformat{\subsection} % Redefinir el formato de \subsection
+  {\fontsize{11}{16.5}\selectfont\bfseries} % Cambiar tamaño y estilo
+  {\thesubsection} % Cómo mostrar el número de la subsección
+  {1em} % Espaciado entre el número y el título
+  {} % Código adicional antes del título (nada)
+
+%============Modificacion del formato de las listas==============%
+
+\setlist{nosep} % Elimina espacio vertical extra entre la lista y el resto de documento, asi como tambien el espacio vertical extra entre cada item de la lista
+
+\setlist[enumerate,2]{label=\alph*)}
+
+%=======Comandos para modificar el formato de los glosarios======%
+
+\setlength{\glsdescwidth}{400pt} % Establece el ancho del espacio donde se muestra las definiciones de las palabras de los glosarios
+
+% Este codigo configura el formato del titulo de los glosarios
+% Los coloca centrados y en negrita
+\renewcommand{\glossarysection}[2][]{%
+    {\centering\textbf{#2}\\} \vspace{\baselineskip}
+}
+
+\renewcommand*{\glsnamefont}[1]{#1:} %establece los dos puntos despues de cada sigla, abreviatura, nomenclatura o palabra del glosarion
+
+%============Modificacion del formato de las figuras=============%
+%=========================Y tablas===============================%
+
+% Se configura el epigrafe de las figuras para que sigan el formato "figura 1.1 descripcion de imagen"
+\captionsetup[figure]{name=Figura, labelsep=space, font= small}
+
+% Se configura el epigrade de las tablas para que sigan el formato "tabla 1.1 descripcion de la tabla"
+\captionsetup[table]{name=Tabla, labelsep=space, font= small}
+
+\setlength{\LTpre}{16.5pt} % Agrega mas espacio vertical entre texto y parte superior de la figura
+
+\setlength{\LTpost}{0pt} % Elimina espacio extra vertical entre parte inferior de figura y texto
+
+%==========Modificacion del formato de los capitulos=============%
+
+% Configuracion del formato de los capitulos para que elimine el espacio que deja el texto de las etiquetas \chapter
+\makeatletter
+\newcommand{\nochapterspace}{
+  \renewcommand{\@makechapterhead}[1]{}
+  \renewcommand{\@makeschapterhead}[1]{}
+}
+\makeatother
+
+\glsaddall %Comando para que se agreguen todas las siglas, abreviaturas, nomenclatura y palabras del glosario que se han ingresado, incluso si no se han mostrado en los capitulos
+
+%==========Modificacion del formato de las referencias===========%
+
+\addbibresource{referencias.bib} %Se importa el archivo donde estan las referencias en formato biblatex
+
+\renewcommand{\bibfont}{\fontsize{11pt}{16.5pt}\selectfont} %Modifica la fuente e interlineado de las referencias
+
+\setlength{\bibhang}{0pt} %Elimina la sangria en las referencias
+
+\setlength{\bibitemsep}{16.5pt} %Establece la separacion vertical entre referencias
+
+\DefineBibliographyStrings{spanish}{%
+  nodate = {s.f.}, % Redefinir el texto para referencias sin fecha
+}
+%==========================Documento=============================%
+
+\begin{document} % Inicio del documento
+
+    \nochapterspace %Elimina espacio del nombre de los capitulos que trae por defecto latex
+    
+    \setlength{\parskip}{\baselineskip} %Se elimina espacio extra entre parrafos
+    
+    \fontsize{11}{16.5}\selectfont % Se establece la fuente tamaño 11 e interlineado 16.5
+
+    %------------------------PRIMERA PORTADA-----------------------
+    
+    \chapter*{\phantom{Primera portada}} % Este comando sirve para que se muestre la seccion en el indice
+    \begin{primeraportada}
+    \end{primeraportada}
+
+    %------------------------SEGUNDA PORTADA-----------------------
+    
+    \chapter*{\phantom{Segunda portada}} % Este comando sirve para que se muestre la seccion en la tabla de contenido
+    \begin{segundaportada}
+    \end{segundaportada}
+
+    %-------------------------AGRADECIMIENTOS----------------------
+    
+    \chapter*{\phantom{Agradecimientos}}
+    \begin{agradecimientoentorno}
+    \end{agradecimientoentorno}
+
+    %-------------------------DEDICATORIAS-------------------------
+    \begin{dedicatoria}
+    \end{dedicatoria}
+
+    %-------------------INICIO NUMERACIÓN ROMANA-------------------
+    \paroimpar{\value{page}}
+    \begin{romanos} % Comienza entorno para que se muestre numeracion romana
+
+    %------------------------RESUMEN-------------------------------
+    
+    \chapter*{\phantom{Resumen}}\addcontentsline{toc}{chapter}{RESUMEN}
+    % Este comando sirve para que se muestre la seccion en la tabla de contenido
+    \begin{resumenentorno}  
+    \end{resumenentorno}
+
+    %-------------------------ÍNDICE------------------------------
+    
+    \chapter*{\phantom{Indice}} % Este comando sirve para que se muestre la seccion en la tabla de contenido
+    \begin{indice}
+    \end{indice}
+    
+    %----------------------ÍNDICE DE FIGURAS----------------------
+    
+    \chapter*{\phantom{Indice de figuras}}\addcontentsline{toc}{chapter}{ÍNDICE DE FIGURAS}
+    % Este comando sirve para que se muestre la seccion del indice de figuras
+    \begin{indices}{ÍNDICE DE FIGURAS}{\listoffigures}
+    \end{indices}
+    %}
+
+    %----------------------ÍNDICE DE TABLAS-----------------------
+
+    \chapter*{\phantom{Indice de tablas}}\addcontentsline{toc}{chapter}{ÍNDICE DE TABLAS}
+    % Este comando sirve para que se muestre la seccion en la tabla de contenido
+    \begin{indices}{ÍNDICE DE TABLAS}{\listoftables}
+    \end{indices}
+    %}
+
+    %---------------------------SIGLAS------------------------------
+    
+    % Este comando sirve para que se muestre la seccion en la tabla de contenido
+    \begin{sigabrnom}{siglas}
+    \end{sigabrnom}
+
+    %------------------------ABREVITURAS----------------------------
+    
+     % Este comando sirve para que se muestre la seccion en la tabla de contenido
+    \begin{sigabrnom}{abreviaturas}
+    \end{sigabrnom}
+
+    %------------------------NOMENCLATURA---------------------------
+    
+     % Este comando sirve para que se muestre la seccion en la tabla de contenido
+    \begin{sigabrnom}{nomenclatura}
+    \end{sigabrnom}
+
+    %-------------------FINAL NÚMERACION ROMANA---------------------
+    
+    \end{romanos} % Termina entorno para que se muestre numeracion romana
+
+    %-------------------INICIO NÚMERACION ARABIGA-------------------
+    
+    \begin{arabigos} % Comienza entorno para que se muestre numeracion arabiga
+
+    %----------------------------CAPITULOS--------------------------
+    
+    \begin{capitulosentorno}
+    \end{capitulosentorno}
+
+    %-----------------------------GLOSARIO--------------------------
+    
+    % Este comando sirve para que se muestre la seccion en la tabla de contenido
+    \begin{glosario}
+    \end{glosario}
+
+    %----------------------------REFERENCIAS-------------------------
+    
+    \chapter*{\phantom{Referencias}}\addcontentsline{toc}{chapter}{REFERENCIAS} % Este comando sirve para que se muestre la seccion en la tabla de contenido
+    \begin{referencias}
+    \end{referencias}
+
+    %----------------------FINAL NÚMERACION ARABIGA-----------------
+    
+    \end{arabigos} % Termina entorno para que se muestre numeracion arabiga
+
+    %-----------------------------ANEXOS----------------------------
+    
+    % Este comando sirve para que se muestre la seccion en la tabla de contenido
+    \begin{anexosentorno}
+    \end{anexosentorno}
+    
+\end{document} %Termina el documento

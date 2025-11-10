@@ -1,0 +1,390 @@
+
+\input{comandos}
+
+% ================================================================
+%            Sección editable para primera portada
+% ================================================================
+% =============== NO MODIFICAR LOS COMANDOS ======================
+% ================================================================
+
+\newcommand{\titulo}{Título del trabajo} %Título del trabajo
+
+% 0. Informatica
+% 1. Civil
+% 2. Electrica
+% 3. Energetica
+% 4. Alimentos
+% 5. Quimica
+% 6. Mecanico
+% 7. Industrial
+% 8. Arquitectura
+% 9. Licenciatura en Diseño
+\newcommand{\carrera}{0}
+
+\autor{Nombre del autor 1}{H} % Autor 1
+\autor{Nombre del autor 2}{H} % Autor 2 (opcional)
+\autor{Nombre del autor 3}{H} % Autor 3 (opcional)
+\autor{Nombre del autor 4}{H} % Autor 4 (opcional)
+
+
+\newcommand{\mesdegraduacion}{Mes y año de graduación} % Mes y año de graduación
+
+%================================================================
+%            Sección editable para segunda portada
+% ===============================================================
+% ================ NO MODIFICAR LOS COMANDOS ====================
+% ===============================================================
+
+\newcommand{\rector}{Nombre del rector}% Nombre del rector
+\newcommand{\sexorector}{masculino} % Sexo del secretario o secretaria general
+\newcommand{\secretariogeneral}{Nombre del secretario o secretaria general} % Nombre del secretario o secretaria general
+\newcommand{\sexosecretario}{masculino} % Sexo del secretario o secretaria general
+\newcommand{\decano}{Nombre del decano de la facultad de ingeniería y arquitectura} % Nombre del decano de la facultad de ingeniería y arquitectura
+\newcommand{\sexodecano}{masculino} % Sexo del secretario o secretaria general
+\newcommand{\directordecarrera}{Nombre del director de la carrera} % Director de la carrera
+\newcommand{\sexodirectordecarrera}{masculino} % Sexo del secretario o secretaria general
+\newcommand{\directordetrabajo}{Nombre del director del trabajo de graduación} % Director del trabajo de graduación
+\newcommand{\sexodirectordetrabajo}{masculino} % Sexo del secretario o secretaria general
+\newcommand{\lector}{Nombre del lector o lectora} % Nombre del lector o lectora
+\newcommand{\sexolector}{masculino} % Sexo del lector o lectora
+
+%=================================================================
+%            Sección editable para agradecimientos
+% ================================================================
+% ================ NO MODIFICAR LOS COMANDOS =====================
+% ================================================================
+\newcommand{\agradecimiento}{}
+%\newcommand{\agradecimiento}{En esta sección el grupo puede agradecer a las personas que ayudaron en el proceso de creación de la tesis. Esta seccion es opcional y es realizada por todo el grupo, y su extensión no debe ser mayor a una página.} % Agradecimientos
+
+%=================================================================
+%               Sección editable para dedicatorias
+% ================================================================
+% ================= NO MODIFICAR LOS COMANDOS ====================
+% ================================================================
+\newcommand{\dedicatoriaautorA}{}
+%\newcommand{\dedicatoriaautorA}{En esta sección los estudiantes pueden dedicar a sus familiares o seres querido el esfuerzo realizado durante la realización del trabajo y en general durante toda la carrera, así como también agradecer a las personas que los han apoyado durante este proceso. Las dedicatorias son opcionales, cada estudiante decide la escribe o no y la extensión de la dedicatoria no debe ser mayor a una página.}% Dedicatoria del autor A, ingresar solo si se ingreso "true" en el comando "porcadaestudiante".
+
+\newcommand{\dedicatoriaautorB}{}% Dedicatoria del autor B, ingresar solo si se ingreso "false" en el comando "porcadaestudiante".
+
+\newcommand{\dedicatoriaautorC}{}% Dedicatoria del autor C, ingresar solo si se ingreso "false" en el comando "porcadaestudiante".
+
+\newcommand{\dedicatoriaautorD}{}% Dedicatoria del autor D, ingresar solo si se ingreso "false" en el comando "porcadaestudiante".
+
+%=================================================================
+%                   Sección editable para resumen
+% ================================================================
+% ================== NO MODIFICAR LOS COMANDOS ===================
+% ================================================================
+
+\newcommand{\resumen}{La comunidad estudiantil de la Universidad Centroamericana José Simeón Cañas (UCA) enfrenta el desafío de acceder a información institucional, la cual se encuentra dispersa en múltiples fuentes y formatos. Esta descentralización genera ineficiencias, pérdida de tiempo y desinformación al realizar consultas sobre procesos académicos, administrativos y servicios universitarios. El presente proyecto aborda esta problemática mediante la implementación de un prototipo de asistente conversacional denominado ``UCAchat''.
+
+La solución se basa en una arquitectura de Retrieval-Augmented Generation (RAG), que potencia un Large Language Model (LLM) con una base de conocimiento específica, construida a partir de documentos públicos de la universidad. La metodología propuesta comprende tres fases: una investigación inicial para recopilar documentos y determinar las necesidades de los estudiantes a través de encuestas; el diseño y desarrollo del prototipo RAG y su interfaz web; y una fase final de pruebas y evaluación con usuarios para medir su eficacia y pertinencia. Se espera que el prototipo demuestre la viabilidad de centralizar la información institucional y mejorar significativamente la experiencia estudiantil.
+}
+
+%=================================================================
+%                  Sección editable para siglas
+% ================================================================
+% ================== NO MODIFICAR LOS COMANDOS ===================
+% ================================================================
+
+\itemsiglas{Siglas}{En esta sección se deben escribir las siglas que se utilizan en el trabajo. Una sigla es una palabra conformada por las iniciales de un nombre o expresión compuesta por varias palabras, por ejemplo ONU (Organización de las Naciones Unidas).}
+
+%=================================================================
+%                 Sección editable para abreviaturas
+% ================================================================
+% ================== NO MODIFICAR LOS COMANDOS ===================
+% ================================================================
+
+\itemabreviatura{Abreviaturas}{En esta sección se deben escribir las abreviaturas que se utilizan en el trabajo. Las\newline abreviaturas son representaciones reducidas de una palabra, por ejemplo\newline Sr.(Señor), no se debe abusar de ellas y no se deben colocar las unidades de medida.}
+\itemabreviatura{}{}
+\itemabreviatura{}{}
+
+%=================================================================
+%               Sección editable para nomenclatura
+% ================================================================
+% ================== NO MODIFICAR LOS COMANDOS ===================
+% ================================================================
+
+\itemnomenclatura{Nomenclaturas}{En esta sección se debe escribir la nomenclatura que se utiliza en el trabajo. La nomenclatura son los diferentes símbolos que se utilizan en un ámbito especifico de las ciencias, por ejemplo en el área de química $H2O$(formula del agua) o en física $V$(Voltaje).}
+\itemnomenclatura{}{}
+\itemnomenclatura{}{}
+
+%=================================================================
+%          Sección editable para capítulo de introcuccion
+% ================================================================
+% ================== NO MODIFICAR LOS COMANDOS ==================
+% ===============================================================
+
+\newenvironment{planteamientodelproblema}{
+Los estudiantes de la Universidad Centroamericana José Simeón Cañas, y las personas interesadas en estudiar en esta universidad, deben realizar a lo largo de su carrera diferentes procesos, tanto administrativos como educativos, sociales y recreativos. La cantidad de información existente impide su centralización, por lo cual muchos estudiantes desconocen los lineamientos que deben seguir, los lugares a los que deben acercarse y, en general, dónde encontrar la información que necesitan.
+
+Esto provoca que los estudiantes enfrenten dificultades para acceder de manera rápida y eficiente a datos relevantes como horarios de la cafetería, reglamentos institucionales, mallas curriculares, servicios disponibles dentro de la institución, así como opciones de alimentación cercanas al campus. La falta de un sistema centralizado de consulta genera pérdida de tiempo, desinformación y, en algunos casos, desmotivación en la comunidad universitaria.
+
+Ante esta situación, surge la necesidad de contar con una herramienta digital que concentre y organice la información más relevante en un solo lugar, de manera accesible, práctica y actualizada.
+}{}
+\newenvironment{antecedentes}{
+\textbf{Chatbot para la educación: un asistente conversacional sobre inteligencia artificial.} \\
+Los autores Gil, F., Moraes, A. y Tift, W. de la Universidad de la República (Uruguay) en su trabajo de graduación para optar por el título de Ingeniero en Computación.
+
+Colibri, un chatbot educativo de código abierto diseñado para apoyar a docentes en la enseñanza y comprensión de la inteligencia artificial generativa. El sistema se entrenó con fuentes confiables, integrando funcionalidades que permiten responder preguntas, brindar ejemplos y recomendar lecturas sobre IA. Además, buscó fomentar un aprendizaje autónomo mediante una interfaz conversacional intuitiva. Este antecedente resulta relevante porque muestra cómo los chatbots pueden ser empleados en el ámbito educativo para transmitir conocimiento especializado de manera clara y accesible. \\[1em]
+
+\textbf{Chatbot en ámbitos académicos.} \\
+Los autores Geekoders de la Universidad de El Salvador, sede en Santa Tecla, en su proyecto de graduación para optar por el título de Ingeniero en Software.
+
+Un asistente virtual conversacional accesible a través de Facebook Messenger. El chatbot fue programado con 38 intenciones específicas para atender consultas frecuentes de los estudiantes, como inscripciones, horarios, constancias y procesos administrativos. Durante su primera semana de uso, mostró resultados positivos en la cantidad de interacciones realizadas por los alumnos. Este antecedente es importante porque ejemplifica la aplicación práctica de chatbots en contextos universitarios para mejorar la comunicación institucional y dar respuestas rápidas a dudas comunes. \\[1em]
+
+\textbf{Chatbot for communicating with university students in emergency situations.} \\
+Los autores Balderas, A., García-Mena, R. F., Huerta, M., Mora, N., \& Dodero, J. M. de la Universidad de Cádiz en su trabajo de graduación en su trabajo de graduación por optar por el título de Ingeniero en Informática.
+
+Un chatbot desarrollado para atender a estudiantes universitarios durante situaciones de emergencia, como la pandemia de COVID-19. El sistema fue diseñado con Dialogflow y entrenado para manejar preguntas frecuentes relacionadas con servicios de apoyo psicológico, trámites académicos y acceso a recursos institucionales. Fue evaluado con estudiantes, docentes y personal administrativo, obteniendo resultados positivos en facilidad de uso, rapidez y claridad en las respuestas.
+}{}
+
+\newenvironment{alcances}{
+\begin{itemize}
+    \item La aplicación será accesible a través de una página web, permitiendo a los estudiantes y demás usuarios consultar información y resolver dudas relacionadas con la universidad de manera centralizada y práctica.
+    \item Contará con una interfaz de usuario intuitiva, simple y accesible, diseñada para facilitar la navegación y garantizar que los usuarios, independientemente de su nivel de experiencia tecnológica, puedan interactuar con el sistema sin dificultad.
+    \item La aplicación ofrecerá respuestas rápidas y contextualizadas, reduciendo la necesidad de que los estudiantes acudan a múltiples fuentes de información dispersas.
+    \item Se incluirá un diseño adaptativo (responsive), que permitirá el acceso tanto desde computadoras de escritorio como desde dispositivos móviles.
+\end{itemize}
+}{}
+
+\newenvironment{limitaciones}{
+La aplicación estará limitada a contestar preguntas relacionadas al contexto de la universidad y sus extensiones, se evitará en la medida de lo posible dar seguimiento a información que esté fuera de estos límites.
+}{}
+\newenvironment{objetivogeneral}{Implementar un chat con integración de inteligencia artificial para proveer información de manera centralizada acerca de la Universidad Centroamericana José Simeón Cañas y sus procesos.}{}
+\newenvironment{objetivosespecificos}{
+\begin{itemize}
+    \item Identificar los procesos más comunes por los cuales los estudiantes realizan consultas de información, con el fin de recopilar y clasificar sus necesidades principales.
+    \item Elaborar una base de conocimiento estructurada que contenga la información académica y administrativa más consultada por los estudiantes.
+    \item Analizar diferentes alternativas de modelos de inteligencia artificial que permitan un equilibrio entre eficiencia y uso de recursos.
+    \item Integrar la base de conocimiento con un modelo de inteligencia artificial que responda de manera clara y precisa a las consultas estudiantiles.
+\end{itemize}
+
+}{}
+
+%=================================================================
+%                Sección editable para capítulos
+% ================================================================
+% ================= NO MODIFICAR LOS COMANDOS ====================
+% ================================================================
+
+\newcommand{\capitulos}{
+    \capitulo{Estuctura de los capítulos}{
+    Los capítulos del Trabajo de Graduación con el tema de Implementación de prototipo para UCAchat están estructurados de la siguiente manera:
+
+    \begin{listaenumerada}
+        \item Marco teórico
+        \item Metodología
+        \item Presentación, análisis e interpretación de resultados
+    \end{listaenumerada}
+    }
+    \capitulo{Marco teórico}{
+
+
+\section{Orígenes de la Inteligencia Artificial (IA)}
+
+La inteligencia artificial (IA) es una tecnología que ha experimentado un avance espectacular en poco tiempo, gracias a la combinación de factores como el \textit{big data}, el \textit{blockchain}, la nube, el internet de las cosas, la robótica y la realidad virtual. Aunque la IA no es una invención reciente, ya que sus orígenes se remontan a hace más de 50 años, su impacto actual es enorme y afecta a casi todos los ámbitos de la vida. Una conjunción de factores, como los avances en la potencia informática, la disponibilidad de enormes cantidades de datos y nuevos algoritmos, ha permitido que se produzcan grandes logros en los sistemas de IA en los últimos años.
+
+No hay una definición clara de estos sistemas que goce de amplio consenso, porque, de una parte, la IA está sometida a las variaciones que se produzcan como consecuencia de los avances tecnológicos, de forma que no responde a algo estático, sino que es producto de una tecnología disruptiva que, además, se desarrolla a pasos acelerados. De otra parte, no existe un consenso entre los agentes implicados sobre lo que son los sistemas de IA. Sin embargo, con el objeto de regular la inteligencia artificial (IA) de manera efectiva, es necesaria una comprensión común de lo que se entiende por “inteligencia artificial”. Con ello se pretende dar respuesta al interrogante de qué es lo que se quiere regular y por qué, así como identificar cuáles son los aspectos que se consideran “peligrosos” y que deben ser objeto de regulación. No todos los sistemas de IA son motivo de preocupación, ya que no todos pueden afectar al régimen de derechos.
+
+El término IA, \textit{Inteligencia Artificial}, fue usado por primera vez por John McCarthy (1956) para referirse a “la ciencia y la ingeniería de crear máquinas inteligentes, especialmente programas de computación inteligentes”. Los sistemas de IA son capaces de adaptar su comportamiento, analizar los efectos de acciones previas y trabajar de manera autónoma. Son tecnologías de procesamiento de la información que integran modelos y algoritmos con capacidad para aprender y realizar tareas cognitivas, dando lugar a resultados como la predicción y la adopción de decisiones en entornos materiales y virtuales.
+
+La inteligencia artificial se relaciona de forma clara con el \textit{big data}. Lo necesita para desarrollar sus funcionalidades, ya que se nutre de la gran cantidad de datos recopilados para entrenar modelos de aprendizaje automático y tomar decisiones basadas en patrones y correlaciones. Esta sinergia permite a la inteligencia artificial realizar tareas como el procesamiento de lenguaje natural, la visión por computadora y la toma de decisiones predictivas con un alto grado de precisión \cite{cotino2017inteligencia}. La tecnología \textit{blockchain} también desempeña un papel importante en este ecosistema \cite{merchan2019blockchain}. Al aprovechar la seguridad y la inmutabilidad que proporciona la cadena de bloques, tanto el \textit{big data} como la inteligencia artificial pueden garantizar la integridad de los datos, lo que es esencial en aplicaciones críticas como la autenticación de identidades digitales y la gestión de claves criptográficas, fortaleciendo así la seguridad en las comunicaciones y transacciones digitales.
+
+
+
+    
+    }
+    \capitulo{Metodología}{
+
+    \begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{img/cronograma.png}
+\caption{Arquitectura general del sistema UCAchat.}
+\label{fig:cronograma_ucachat}
+\end{figure}
+
+\noindent
+La Figura~\ref{fig:cronograma_ucachat} muestra la arquitectura general del sistema UCAchat, conformada por tres componentes principales:
+\begin{itemize}
+    \item \textbf{Base de conocimiento:} conformada por documentos y fuentes públicas de la universidad, procesadas y estructuradas para ser consultadas eficientemente.
+    \item \textbf{Modelo RAG (Retrieval-Augmented Generation):} modelo de inteligencia artificial encargado de generar respuestas contextualizadas a partir de la información almacenada.
+    \item \textbf{Interfaz web:} permite la interacción de los usuarios con el asistente conversacional, ofreciendo una experiencia accesible y centralizada.
+\end{itemize}
+
+    }
+    \capitulo{Presentación, análisis e interpretación de resultados}{
+    En esta sección de debe explicar cómo los resultados se derivan de las mediciones realizadas. Pueden añadirse diagramas para clarificar el diseño experimental, gráficos y tablas para ilustrar mejor los resultados. Por otra parte, en el análisis e interpretación de los resultados se debe responder a la pregunta planteada en la introducción. Es necesario hacer énfasis en porqué sus resultados son relevantes. Finalmente plantee las fortalezas y las debilidades de su estudio.
+    }
+    \capitulo{Formato de los trabajos}{
+    A continuación, se muestran las características principales del formato de trabajos de graduación creado por la facultad de ingeniería y arquitectura de la UCA.
+    
+    \begin{lista}
+        \item \textbf{Partes del documento:}
+        \begin{lista}
+            \item Primera portada.
+            \item Segunda portada.
+            \item Agradecimientos (opcional).
+            \item Dedicatorias (opcional).
+            \item Resumen.
+            \item Índice.
+            \item Índice de figuras.
+            \item Índice de tablas.
+            \item Siglas.
+            \item Abreviaturas.
+            \item Nomenclatura.
+            \item Capítulos.
+            \item Glosario (opcional).
+            \item Referencias.
+            \item Anexos.
+        \end{lista}
+
+        \item \textbf{Formato general:}
+        \begin{lista}
+            \item Pagina tamaño carta.
+            \item Margen de 2.5cm en todos lados.
+            \item Borde de encuadernación de 1cm.
+            \item Fuente Times New Roman 11pt.
+            \item Interlineado 1.5pt.
+            \item Espacio extra entre párrafos 0.
+            \item Línea vacía entre párrafos.
+            \item Todas las secciones deben comenzar en página impar.
+            \item En todas las secciones que llevan título, el titulo se coloca al inicio de la página, en negrita, en mayúscula y centrado horizontalmente.
+            \item Debe haber separación de una línea vacía entre el título y el texto.
+        \end{lista}
+
+        \item \textbf{Portadas:}
+        \begin{lista}
+            \item Texto centrado horizontalmente.
+            \item Espacio igual entre los párrafos para que el texto ocupe todo el espacio disponible.
+            \item Texto en mayúscula.
+            \item Fuente tamaño 14pt.
+            \item Logo de la primera portada 2.5cm de alto.
+            \item En la primera portada los nombres de los integrantes van ordenados en orden alfabético basados en el primer apellido.
+    \end{lista}
+
+    \item \textbf{Agradecimientos:}
+    \begin{lista}
+        \item Extensión máxima una página.
+    \end{lista}
+
+    \item \textbf{Dedicatoria:}
+    \begin{lista}
+        \item Una por cada integrante.
+        \item Extensión máxima una página.
+        \item Debe llevar el nombre correspondiente del integrante al final de la página y alineado al lado derecho.
+    \end{lista}
+
+    \item \textbf{Resumen:}
+    \begin{lista}
+        \item Extensión de una a tres páginas.
+    \end{lista}
+
+    \item \textbf{Índice:}
+    \begin{lista}
+        \item El espacio horizontal entre el nombre de las secciones y el número de página debe estar lleno de puntos.
+        \item Se permite hasta tres niveles de título.
+        \item Los títulos de las secciones principales van en mayúscula.
+        \item Al final se deben colocarlos anexos.
+    \end{lista}
+
+    \item \textbf{Índice de figuras e índice de tablas:}
+    \begin{lista}
+        \item Cada entrada del índice de figuras debe iniciar con la palabra “Figura” seguido del número de capitulo y el número correlativo de la figura.
+        \item Cada entrada del índice de tablas debe iniciar con la palabra “Tabla” seguido del número de capitulo y el número correlativo de la tabla.
+    \end{lista}
+
+    \item\textbf{Siglas, abreviaturas y nomenclatura:}
+    \begin{lista}
+        \item Van separados en dos columnas, en la columna izquierda se coloca la sigla o palabra seguido de dos puntos y en la columna derecha se coloca la definición.
+    \end{lista}
+
+    \item\textbf{Figuras:}
+    \begin{lista}
+        \item Las figuras incluyen gráficos, diagramas, fotos, etc.
+        \item El epígrafe va en la parte inferior centrado horizontalmente.
+        \item Al inicio va la palabra “Figura” seguido del número de capitulo y número correlativo.
+        \item En el epígrafe continuo a la descripción de la figura va la fuente.
+        \item La fuente sigue el siguiente formato, “Fuente: [apellido autor, año]”.
+        \item Si la figura es de elaboración propia se coloca, “Fuente: [Elaboración propia]”.
+        \item Si la figura ha sido adaptada de alguna parte se coloca, “Adaptado de: [apellido autor, año]”.
+        \item Las figuras se pueden colocar con orientación horizontal, en ese caso siempre de izquierda a derecha.
+        \item Si la figura tiene orientación horizontal, el epígrafe se coloca en el lado derecho de la página.
+    \end{lista}
+
+    \item\textbf{Tabla:}
+    \begin{lista}
+        \item El epígrafe va en la parte superior, centrado horizontalmente.
+        \item Al inicio va la palabra “Tabla” seguido del número de capitulo y número correlativo.
+        \item La fuente se coloca en la parte inferior, centrada horizontalmente.
+        \item La fuente sigue el siguiente formato, “Fuente: [apellido autor, año]”.
+        \item Si la tabla es de elaboración propia se coloca, “Fuente: [Elaboración propia]”.
+        \item Si la figura ha sido adaptada de alguna parte se coloca, “Adaptado de: [apellido autor, año]”.
+        \item Las tablas se pueden colocar con orientación horizontal, en ese caso siempre de izquierda a derecha.
+        \item Si la tabla tiene orientación horizontal, el epígrafe se coloca en el lado izquierdo de la página.
+    \end{lista}
+
+    \item\textbf{Ecuaciones:}
+    \begin{lista}
+        \item Las ecuaciones deben estar numeradas de la siguiente forma “(Ec.1.1)”.
+    \end{lista}
+
+    \item \textbf{Glosario:}
+    \begin{lista}
+        \item Tiene el mismo formato que las siglas, abreviaturas y nomenclatura.
+    \end{lista}
+
+    \item\textbf{Referencia:}
+    \begin{lista}
+        \item El formato de la referencia es en formato APA.
+        \item No se coloca sangría en las líneas de cada una de las referencias.
+        \item Las referencias van separadas horizontalmente por una línea vacía.
+    \end{lista}
+
+    \item\textbf{Portada anexos:}
+    \begin{lista}
+        \item Los anexos se enumeran utilizando letras.
+        \item La portada de los anexos lleva dos partes, lleva la palabra “ANEXO” en mayúscula seguido de la letra correspondiente, el tamaño de fuente de esta parte es 20pt.
+        \item El título del anexo en mayúscula, el tamaño de fuente de esta parte es 16pt.
+        \item Todo el texto va centrado vertical y horizontalmente.
+    \end{lista}
+
+    \end{lista}
+    }
+}
+
+%=================================================================
+%       Sección editable para conclusiones y recomendaciones
+% ================================================================
+% ================= NO MODIFICAR LOS COMANDOS ===================
+% ================================================================
+
+\newenvironment{conclusiones}{En esta sección se escriben las conclusiones a las que se ha llegado luego de realizar el trabajo, las conclusiones deben concordar con los objetivos planteados anteriormente.}{}
+
+\newenvironment{recomendaciones}{
+En esta sección, se presentan las recomendaciones hechas por el grupo de trabajo para las personas que se beneficiarán del estudio o proyecto realizado.
+}{}
+
+%=================================================================
+%                Sección editable para glosario
+% ================================================================
+% ================= NO MODIFICAR LOS COMANDOS ====================
+% ================================================================
+
+\newcommand{\mostrarglosario}{true}
+\itemglosario{Glosario}{En esta sección, se incluyen términos utilizados en el documento cuya definición podría\newline no ser conocida por el lector, especialmente aquellos de carácter técnico. Esta sección\newline es opcional, como por ejemplo: BackEnd (Parte de una aplicación web que gestiona\newline la lógica, el procesamiento de datos y la comunicación con el servidor).}
+\itemglosario{}{}
+\itemglosario{}{}
+
+%=================================================================
+%                    Sección editable para anexos
+% ===============================================================
+% ================== NO MODIFICAR LOS COMANDOS ==================
+% ================================================================
+
+\newcommand{\anexos}{
+    \anexo{anexos}{
+     En los anexos se colocan los documentos, gráficos, tablas, imágenes u otros materiales complementarios que proporcionan información adicional relevante, pero que no forman parte del cuerpo principal del trabajo.
+    }
+}
+
