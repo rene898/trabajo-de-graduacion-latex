@@ -1,5 +1,14 @@
+\input{NoModificar/comandos}
 
-\input{comandos}
+% --- PAQUETES ADICIONALES ---
+\usepackage{pgfgantt}
+
+\definecolor{myorange}{RGB}{255, 170, 50}
+\definecolor{mylightorange}{RGB}{255, 190, 90}
+\definecolor{myblue}{RGB}{65, 105, 225}
+\definecolor{mygreen}{RGB}{180, 230, 130}
+\definecolor{titleblue}{RGB}{60, 90, 200}
+\definecolor{headergreen}{RGB}{195, 230, 140}
 
 % ================================================================
 %            Sección editable para primera portada
@@ -7,7 +16,7 @@
 % =============== NO MODIFICAR LOS COMANDOS ======================
 % ================================================================
 
-\newcommand{\titulo}{Título del trabajo} %Título del trabajo
+\newcommand{\titulo}{IMPLEMENTACIÓN DE PROTOTIPO PARA ``UCACHAT''} %Título del trabajo
 
 % 0. Informatica
 % 1. Civil
@@ -21,10 +30,10 @@
 % 9. Licenciatura en Diseño
 \newcommand{\carrera}{0}
 
-\autor{Nombre del autor 1}{H} % Autor 1
-\autor{Nombre del autor 2}{H} % Autor 2 (opcional)
-\autor{Nombre del autor 3}{H} % Autor 3 (opcional)
-\autor{Nombre del autor 4}{H} % Autor 4 (opcional)
+\autor{WALTER RAFAEL MORALES HENRIQUEZ}{H} % Autor 1
+\autor{MONICA ALEJANDRA VEGA FLORES}{M} % Autor 2 (opcional)
+\autor{OMAR ALFREDO VASQUEZ ESCAMILLA}{H} % Autor 3 (opcional)
+\autor{RENE ARMANDO FLORES CORTEZ}{H} % Autor 4 (opcional)
 
 
 \newcommand{\mesdegraduacion}{Mes y año de graduación} % Mes y año de graduación
@@ -197,20 +206,106 @@ La inteligencia artificial se relaciona de forma clara con el \textit{big data}.
     }
     \capitulo{Metodología}{
 
-    \begin{figure}[H]
-\centering
-\includegraphics[width=0.9\textwidth]{img/cronograma.png}
-\caption{Arquitectura general del sistema UCAchat.}
-\label{fig:cronograma_ucachat}
-\end{figure}
+    \section{Metodología}
+    
+    El desarrollo del prototipo ``UCAchat'' se llevará a cabo mediante una metodología estructurada en tres fases secuenciales, diseñadas para garantizar que el producto final responda a las necesidades reales de los usuarios y cumpla con los objetivos técnicos del proyecto.
+    
+    \subsection{Fase I: Investigación y recopilación de datos}
+    
+    Esta fase inicial se centra en comprender el problema y reunir los insumos necesarios para el sistema.
+    
+    \begin{enumerate}
+        \item \textbf{Levantamiento de requerimientos del usuario:} Se diseñará y distribuirá una encuesta dirigida a la población estudiantil para identificar las dudas más frecuentes y las expectativas sobre un asistente virtual.
+        \item \textbf{Recopilación de información:} Se recolectarán documentos públicos y relevantes de la UCA (reglamento académico, guías de inscripción, mallas curriculares, etc.) que conformarán la base de conocimiento del sistema.
+    \end{enumerate}
+    
+    \subsection{Fase II: Diseño y desarrollo del prototipo}
+    
+    En esta fase se construirán los componentes técnicos de la solución.
+    
+    \begin{enumerate}
+        \item \textbf{Construcción de la base de conocimiento:} Los documentos recopilados serán procesados y estructurados para su uso en el sistema RAG.
+        \item \textbf{Implementación del sistema RAG:} Se seleccionará un LLM de base y se desarrollará la lógica de recuperación para conectarlo con la base de conocimiento, estará expuesto a través de un backend con arquitectura REST.
+        \item \textbf{Desarrollo de la interfaz de usuario (UI):} Se diseñará y programará una aplicación web que sirva como interfaz para el chatbot, con un diseño intuitivo y adaptativo.
+    \end{enumerate}
+    
+    \subsection{Fase III: Pruebas y evaluación}
+    
+    La fase final consiste en validar el prototipo y recopilar retroalimentación para futuras mejoras.
+    
+    \begin{enumerate}
+        \item \textbf{Prueba piloto:} Se seleccionará un grupo representativo de estudiantes para que interactúen con el prototipo ``UCAchat'', en formato de focus group.
+        \item \textbf{Recopilación y análisis de retroalimentación:} Se recopilarán datos cuantitativos y cualitativos a través de observaciones y encuestas post-prueba.
+        \item \textbf{Informe de resultados:} Se analizarán los datos para evaluar el desempeño del prototipo, identificar y realizar posibles mejoras.
+    \end{enumerate}
 
-\noindent
-La Figura~\ref{fig:cronograma_ucachat} muestra la arquitectura general del sistema UCAchat, conformada por tres componentes principales:
-\begin{itemize}
-    \item \textbf{Base de conocimiento:} conformada por documentos y fuentes públicas de la universidad, procesadas y estructuradas para ser consultadas eficientemente.
-    \item \textbf{Modelo RAG (Retrieval-Augmented Generation):} modelo de inteligencia artificial encargado de generar respuestas contextualizadas a partir de la información almacenada.
-    \item \textbf{Interfaz web:} permite la interacción de los usuarios con el asistente conversacional, ofreciendo una experiencia accesible y centralizada.
-\end{itemize}
+    \begin{figure}[H]
+    \centering
+    \noindent
+    \colorbox{titleblue}{%
+      \parbox[c][1cm][c]{\textwidth}{%
+        \centering \bfseries \Large \textcolor{white}{Cronograma de actividades}
+      }%
+    }
+    \vspace{0.7cm}
+    
+    \resizebox{\textwidth}{!}{
+    \begin{ganttchart}[
+        expand chart=\textwidth,
+        hgrid,
+        vgrid,
+        y unit chart=0.7cm,
+        y unit title=0.8cm,
+        canvas/.append style={draw=none},
+        bar/.append style={fill=myblue, draw=none, rounded corners=3pt},
+        bar height=0.5,
+        bar label font=\small\sffamily,
+        bar label node/.append style={
+            text width=5cm,
+            align=right
+        },
+        title/.style={fill=myorange, draw=none, text=white},
+        title label font=\bfseries\footnotesize\color{white},
+        include title in canvas=false
+    ]{1}{24}
+    
+        \gantttitle{Agosto}{4}
+        \gantttitle{Septiembre}{4}
+        \gantttitle{Octubre}{4}
+        \gantttitle{Noviembre}{4}
+        \gantttitle{Diciembre}{4}
+        \gantttitle{Enero}{4} \\
+        
+        \gantttitlelist[
+            title/.style={fill=mylightorange, draw=none, text=white},
+            title label font=\scriptsize\color{white}
+        ]{1,2,3,4, 1,2,3,4, 1,2,3,4, 1,2,3,4, 1,2,3,4, 1,2,3,4}{1} \\
+    
+        \node[fill=headergreen, 
+              draw=none,
+              minimum width=6cm,
+              minimum height=1.6cm,
+              anchor=north east,
+              font=\bfseries\small\color{black!80},
+              xshift=0cm, 
+              yshift=0cm] 
+              at (current bounding box.north west)
+              {Actividades};
+    
+        \ganttbar{Levantamiento de Necesidades}{7}{8} \\
+        \ganttbar[bar/.append style={fill=mygreen}]{Recopilación Documental}{9}{11} \\
+        \ganttbar{Construcción Base de Conocimiento}{13}{16} \\
+        \ganttbar[bar/.append style={fill=mygreen}]{Implementación del Sistema RAG}{16}{20} \\
+        \ganttbar{Desarrollo de la Interfaz (UI)}{21}{22} \\
+        \ganttbar[bar/.append style={fill=mygreen}]{Prueba Piloto}{23}{23} \\
+        \ganttbar{Análisis de Retroalimentación}{23}{23} \\ 
+        \ganttbar[bar/.append style={fill=mygreen}]{Informe de Resultados}{24}{24}
+    
+    \end{ganttchart}
+    }
+    \caption{Cronograma de actividades del proyecto.}
+    \label{fig:cronograma_ucachat}
+    \end{figure}
 
     }
     \capitulo{Presentación, análisis e interpretación de resultados}{
