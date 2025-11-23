@@ -2,6 +2,8 @@
 
 % --- PAQUETES ADICIONALES ---
 \usepackage{pgfgantt}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 
 \definecolor{myorange}{RGB}{255, 170, 50}
 \definecolor{mylightorange}{RGB}{255, 190, 90}
@@ -135,17 +137,21 @@ Ante esta situación, surge la necesidad de contar con una herramienta digital q
 \textbf{Chatbot para la educación: un asistente conversacional sobre inteligencia artificial.} \\
 Los autores Gil, F., Moraes, A. y Tift, W. de la Universidad de la República (Uruguay) en su trabajo de graduación para optar por el título de Ingeniero en Computación.
 
-Colibri, un chatbot educativo de código abierto diseñado para apoyar a docentes en la enseñanza y comprensión de la inteligencia artificial generativa. El sistema se entrenó con fuentes confiables, integrando funcionalidades que permiten responder preguntas, brindar ejemplos y recomendar lecturas sobre IA. Además, buscó fomentar un aprendizaje autónomo mediante una interfaz conversacional intuitiva. Este antecedente resulta relevante porque muestra cómo los chatbots pueden ser empleados en el ámbito educativo para transmitir conocimiento especializado de manera clara y accesible. \\[1em]
+Colibri, un chatbot educativo de código abierto diseñado para apoyar a docentes en la enseñanza y comprensión de la inteligencia artificial generativa. El sistema se entrenó con fuentes confiables, integrando funcionalidades que permiten responder preguntas, 
+brindar ejemplos y recomendar lecturas sobre IA. Además, buscó fomentar un aprendizaje autónomo mediante una interfaz conversacional intuitiva. Este antecedente resulta relevante porque muestra cómo los chatbots pueden ser empleados en el ámbito educativo para transmitir conocimiento especializado de manera clara y accesible \cite{gil2025chaboteducation}. \\[1em]
 
-\textbf{Chatbot en ámbitos académicos.} \\
+\textbf{Chatbot en ámbitos académicos.} \cite{geekoders2019} \\
 Los autores Geekoders de la Universidad de El Salvador, sede en Santa Tecla, en su proyecto de graduación para optar por el título de Ingeniero en Software.
 
-Un asistente virtual conversacional accesible a través de Facebook Messenger. El chatbot fue programado con 38 intenciones específicas para atender consultas frecuentes de los estudiantes, como inscripciones, horarios, constancias y procesos administrativos. Durante su primera semana de uso, mostró resultados positivos en la cantidad de interacciones realizadas por los alumnos. Este antecedente es importante porque ejemplifica la aplicación práctica de chatbots en contextos universitarios para mejorar la comunicación institucional y dar respuestas rápidas a dudas comunes. \\[1em]
+Un asistente virtual conversacional accesible a través de Facebook Messenger. El chatbot fue programado con 38 intenciones específicas para atender consultas frecuentes de 
+los estudiantes, como inscripciones, horarios, constancias y procesos administrativos. Durante su primera semana de uso, mostró resultados positivos en la cantidad de interacciones realizadas por los alumnos. Este antecedente es importante porque ejemplifica la 
+aplicación práctica de chatbots en contextos universitarios para mejorar la comunicación institucional y dar respuestas rápidas a dudas comunes \cite{geekoders2019} . \\[1em]
 
 \textbf{Chatbot for communicating with university students in emergency situations.} \\
-Los autores Balderas, A., García-Mena, R. F., Huerta, M., Mora, N., \& Dodero, J. M. de la Universidad de Cádiz en su trabajo de graduación en su trabajo de graduación por optar por el título de Ingeniero en Informática.
+Los autores Balderas, A., García-Mena, R. F., Huerta, M., Mora, N., \& Dodero, J. M. de la Universidad de Cádiz en su trabajo de graduación por optar por el título de Ingeniero en Informática.
 
-Un chatbot desarrollado para atender a estudiantes universitarios durante situaciones de emergencia, como la pandemia de COVID-19. El sistema fue diseñado con Dialogflow y entrenado para manejar preguntas frecuentes relacionadas con servicios de apoyo psicológico, trámites académicos y acceso a recursos institucionales. Fue evaluado con estudiantes, docentes y personal administrativo, obteniendo resultados positivos en facilidad de uso, rapidez y claridad en las respuestas.
+Un chatbot desarrollado para atender a estudiantes universitarios durante situaciones de emergencia, como la pandemia de COVID-19. El sistema fue diseñado con Dialogflow y entrenado para manejar preguntas frecuentes relacionadas con servicios de apoyo psicológico, 
+trámites académicos y acceso a recursos institucionales. Fue evaluado con estudiantes, docentes y personal administrativo, obteniendo resultados positivos en facilidad de uso, rapidez y claridad en las respuestas \cite{balderas2023emergencysituation}.
 }{}
 
 \newenvironment{alcances}{
@@ -309,7 +315,77 @@ La inteligencia artificial se relaciona de forma clara con el \textit{big data}.
 
     }
     \capitulo{Presentación, análisis e interpretación de resultados}{
-    En esta sección de debe explicar cómo los resultados se derivan de las mediciones realizadas. Pueden añadirse diagramas para clarificar el diseño experimental, gráficos y tablas para ilustrar mejor los resultados. Por otra parte, en el análisis e interpretación de los resultados se debe responder a la pregunta planteada en la introducción. Es necesario hacer énfasis en porqué sus resultados son relevantes. Finalmente plantee las fortalezas y las debilidades de su estudio.
+        En esta sección se presentan los resultados obtenidos de la encuesta realizada a estudiantes de 1er año a 5to año de Ingeniería y Arquitectura. Este capítulo proporciona los datos necesarios para guiar el diseño de UCAChat.
+
+        \section{Año de carrera y facultad}
+        Las primeras dos preguntas buscaban identificar en qué año de la carrera se encuentran los encuestados y la facultad a la que pertenecen.
+
+        \tabla{V}{
+            \begin{table}[H]
+            \centering
+            \begin{tabular}{|l|l|r|}
+            \hline
+            \textbf{Tipo} & \textbf{Año} & \textbf{Cantidad} \\ \hline
+            Opción Cerrada & Primero & 31 \\ \cline{2-3}
+                           & Segundo & 9 \\ \cline{2-3}
+                           & Tercero & 12 \\ \cline{2-3}
+                           & Cuarto & 18 \\ \cline{2-3}
+                           & Quinto & 17 \\ \hline
+            \textbf{Total} & & \textbf{87} \\ \hline
+            \end{tabular}
+            \caption{Año de carrera de los encuestados}
+            \label{tab:anio_carrera}
+            \end{table}
+        }
+
+        \tabla{V}{
+            \begin{table}[H]
+            \centering
+            \begin{tabular}{|l|l|r|}
+            \hline
+            \textbf{Tipo} & \textbf{Facultad} & \textbf{Cantidad} \\ \hline
+            Opción Cerrada & Ingeniería y Arquitectura & 87 \\ \cline{2-3}
+                           & Ciencias Sociales y Humanidades & 0 \\ \cline{2-3}
+                           & Ciencias Económicas y Empresariales & 0 \\ \hline
+            \textbf{Total} & & \textbf{87} \\ \hline
+            \end{tabular}
+            \caption{Facultad de los encuestados}
+            \label{tab:facultad}
+            \end{table}
+        }
+
+        \subsection{Análisis de la muestra}
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+                \begin{axis}[
+                    ybar stacked,
+                    bar width=30pt,
+                    nodes near coords,
+                    enlargelimits=0.15,
+                    legend style={at={(0.5,-0.2)}, anchor=north, legend columns=-1},
+                    ylabel={Cantidad},
+                    symbolic x coords={Ingeniería y Arquitectura, Ciencias Sociales y Humanidades, Ciencias Económicas y Empresariales},
+                    xtick=data,
+                    x tick label style={rotate=0, anchor=north, align=center, text width=4cm, font=\small},
+                    ymin=0,
+                    ymax=100,
+                    width=\textwidth,
+                    height=8cm
+                ]
+                \addplot coordinates {(Ingeniería y Arquitectura,31) (Ciencias Sociales y Humanidades,0) (Ciencias Económicas y Empresariales,0)};
+                \addplot coordinates {(Ingeniería y Arquitectura,9) (Ciencias Sociales y Humanidades,0) (Ciencias Económicas y Empresariales,0)};
+                \addplot coordinates {(Ingeniería y Arquitectura,12) (Ciencias Sociales y Humanidades,0) (Ciencias Económicas y Empresariales,0)};
+                \addplot coordinates {(Ingeniería y Arquitectura,18) (Ciencias Sociales y Humanidades,0) (Ciencias Económicas y Empresariales,0)};
+                \addplot coordinates {(Ingeniería y Arquitectura,17) (Ciencias Sociales y Humanidades,0) (Ciencias Económicas y Empresariales,0)};
+                \legend{Primero, Segundo, Tercero, Cuarto, Quinto}
+                \end{axis}
+            \end{tikzpicture}
+            \caption{Año de carrera y Facultad del gráfico}
+            \label{fig:anio_facultad}
+        \end{figure}
+
+        La composición de la muestra se alineo bien con el objetivo del estudio, ya que la mayor parte de los que respondieron la encuesta fueron estudiantes de primer año (35.63\%), todos pertenecientes a la Facultad de Ingeniería y Arquitectura (100\%). Queremos que UCAChat está especialmente orientado a apoyar a estudiantes de nuevo ingreso, quienes enfrentan mayor incertidumbre respecto a procesos institucionales clave como retiro de materias, diferidos, inscripción y ubicación de información académica. Dado que estos estudiantes son quienes más requieren orientación en su transición universitaria, la muestra resultante es coherente y adecuada para los fines de la investigación, garantizando que las conclusiones reflejen las necesidades de los estudiantes que más se beneficiará con la implementación de UCAchat.
     }
     \capitulo{Formato de los trabajos}{
     A continuación, se muestran las características principales del formato de trabajos de graduación creado por la facultad de ingeniería y arquitectura de la UCA.
