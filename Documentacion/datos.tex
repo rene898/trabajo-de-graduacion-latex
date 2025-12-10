@@ -33,7 +33,7 @@
 \newcommand{\carrera}{0}
 
 \autor{WALTER RAFAEL MORALES HENRIQUEZ}{H} % Autor 1
-\autor{MONICA ALEJANDRA VEGA FLORES}{M} % Autor 2 (opcional)
+%\autor{MONICA ALEJANDRA VEGA FLORES}{M} % Autor 2 (opcional)
 \autor{OMAR ALFREDO VASQUEZ ESCAMILLA}{H} % Autor 3 (opcional)
 \autor{RENE ARMANDO FLORES CORTEZ}{H} % Autor 4 (opcional)
 
@@ -447,13 +447,14 @@ Reconocer estas limitaciones no disminuye el valor del proyecto, sino que enmarc
     \end{figure}
 
     }
-    \capitulo{Presentación, análisis e interpretación de resultados}{
-        En esta sección se presentan los resultados obtenidos de la encuesta realizada a estudiantes de 1er año a 5to año de Ingeniería y Arquitectura. Este capítulo proporciona los datos necesarios para guiar el diseño de UCAChat.
 
-        \section{Año de carrera y facultad}
-        Las primeras dos preguntas buscaban identificar en qué año de la carrera se encuentran los encuestados y la facultad a la que pertenecen.
+\capitulo{Presentación, análisis e interpretación de resultados}{
+    La presentación, el análisis e interpretaciones de los resultados es crucial para conocer la importancia de la implementación del prototipo para UCAchat y por eso se realizó una encuesta a los estudiantes de la Universidad Centroamericana José Simeón Cañas de la facultad de grado de Ingeniería y Arquitectura para conocer la opinión de los estudiantes y ver el nivel de aceptación que tendrá UCAchat, obteniendo los siguientes resultados: 
+    
+    \section{Año de la carrera y la facultad de grado }
+    Las primeras dos preguntas buscan identificar el año y la facultad que el estudiante se encuentra, dando como resultado lo siguiente:
 
-        \tabla{V}{
+    \tabla{V}{
             \begin{table}[H]
             \centering
             \begin{tabular}{|l|l|r|}
@@ -514,12 +515,91 @@ Reconocer estas limitaciones no disminuye el valor del proyecto, sino que enmarc
                 \legend{Primero, Segundo, Tercero, Cuarto, Quinto}
                 \end{axis}
             \end{tikzpicture}
-            \caption{Año de carrera y Facultad del gráfico}
+            \caption{Grafico eAño de carrera y Facultad }
             \label{fig:anio_facultad}
         \end{figure}
 
-        La composición de la muestra se alineo bien con el objetivo del estudio, ya que la mayor parte de los que respondieron la encuesta fueron estudiantes de primer año (35.63\%), todos pertenecientes a la Facultad de Ingeniería y Arquitectura (100\%). Queremos que UCAChat está especialmente orientado a apoyar a estudiantes de nuevo ingreso, quienes enfrentan mayor incertidumbre respecto a procesos institucionales clave como retiro de materias, diferidos, inscripción y ubicación de información académica. Dado que estos estudiantes son quienes más requieren orientación en su transición universitaria, la muestra resultante es coherente y adecuada para los fines de la investigación, garantizando que las conclusiones reflejen las necesidades de los estudiantes que más se beneficiará con la implementación de UCAchat.
-    }
+        Como resultado de la encuesta realizada a 87 estudiantes, la mayor parte de los que respondieron la encuesta fueron estudiantes de primer año (35.63\%), todos pertenecientes a la Facultad de Ingeniería y Arquitectura (100\%). UCAChat estará especialmente orientado a apoyar a estudiantes de nuevo ingreso, quienes enfrentan mayor incertidumbre respecto a procesos institucionales clave como retiro de materias, diferidos, inscripción y ubicación de información académica, etc. Dado que estos estudiantes son quienes más necesitan orientación en su transición universitaria, la muestra resultante es coherente y adecuada para los fines de la investigación, garantizando que las conclusiones reflejen las necesidades de los estudiantes que más se beneficiaran con la implementación de UCAchat.
+
+        \section{Uso de chatbot o inteligencia artificial y con qué frecuencia la utilizan }
+        En esta parte se encuesto a varios estudiantes para conocer si han utilizado una inteligencia artificial o chatbot y tambien que tanto la utilizan. Los resultados fueron los siguientes:
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+                \begin{axis}[
+                    ybar stacked,
+                    bar width=30pt,
+                    nodes near coords,
+                    enlargelimits=0.15,
+                    legend style={at={(0.5,-0.2)}, anchor=north, legend columns=-1},
+                    ylabel={Cantidad},
+                    symbolic x coords={Sí, No},
+                    xtick=data,
+                    x tick label style={rotate=0, anchor=north, align=center, text width=4cm, font=\small},
+                    ymin=0,
+                    ymax=100,
+                    width=\textwidth,
+                    height=8cm
+                ]
+                \addplot coordinates {(Sí,87) (No,0)};
+                \addplot coordinates {(Sí,0) (No,0)};
+                \legend{Sí, No}
+                \end{axis}
+            \end{tikzpicture}
+            \caption{Uso de la IA}
+            \label{fig:uso_ia}
+        \end{figure}
+        
+Los resultados muestran que todos los encuestados han utilizado IA y que su uso es frecuente, principalmente para actividades académicas como obtener información, realizar investigaciones y apoyar tareas. Esto evidencia una alta madurez tecnológica en la población estudiantil. Aunque la confianza en la IA es moderada lo cual es razonable, ya que siempre es necesario verificar la información no existe un rechazo hacia su uso. En conjunto, estos patrones confirman el potencial de UCAChat como asistente institucional, ya que los estudiantes están dispuestos a utilizar herramientas automatizadas siempre que ofrezcan información clara, precisa y verificable.
+
+        \begin{figure}[H]
+            \centering
+            \resizebox{\textwidth}{!}{
+            \begin{tikzpicture}
+                \begin{axis}[
+                    view={0}{90},
+                    xlabel={Frecuencia},
+                    xtick={0,1,2,3,4,5,6,7,8,9,10},
+                    xticklabels={F0,F1,F2,F3,F4,F5,F6,F7,F8,F9,F10},
+                    ytick={0,1,2,3,4},
+                    yticklabels={Ocio, Obtener información académica, Ayuda en procesos de investigación, Ayuda en el trabajo, Ayuda en diseño de proyectos},
+                    ytick label style={text width=5cm, align=right, font=\scriptsize},
+                    xtick label style={font=\footnotesize},
+                    colormap={semaforo}{color(0)=(mygreen); color(4)=(mylightorange); color(9)=(red)},
+                    mesh/cols=11,
+                    enlargelimits=false,
+                    colorbar,
+                    colorbar style={
+                        title={Cant.},
+                        width=10pt
+                    },
+                    point meta=explicit,
+                    nodes near coords,
+                    nodes near coords align={center},
+                    width=15cm,
+                    height=8cm
+                ]
+                \addplot [matrix plot*, mesh/rows=5] coordinates {
+                    (0,0)[0] (1,0)[0] (2,0)[0] (3,0)[0] (4,0)[0] (5,0)[0] (6,0)[0] (7,0)[1] (8,0)[0] (9,0)[0] (10,0)[1]
+                    (0,1)[0] (1,1)[0] (2,1)[0] (3,1)[0] (4,1)[1] (5,1)[7] (6,1)[5] (7,1)[6] (8,1)[9] (9,1)[4] (10,1)[5]
+                    (0,2)[0] (1,2)[0] (2,2)[0] (3,2)[2] (4,2)[2] (5,2)[7] (6,2)[1] (7,2)[5] (8,2)[5] (9,2)[1] (10,2)[1]
+                    (0,3)[0] (1,3)[0] (2,3)[0] (3,3)[0] (4,3)[0] (5,3)[1] (6,3)[3] (7,3)[5] (8,3)[4] (9,3)[1] (10,3)[4]
+                    (0,4)[0] (1,4)[0] (2,4)[0] (3,4)[0] (4,4)[0] (5,4)[1] (6,4)[1] (7,4)[0] (8,4)[1] (9,4)[1] (10,4)[2]
+                };
+                \end{axis}
+            \end{tikzpicture}
+            }
+            \caption{Mapa de calor Frecuencia x Uso}
+            \label{fig:mapa_calor_frecuencia_uso}
+        \end{figure} 
+
+
+
+
+
+
+
+        }
     \capitulo{Formato de los trabajos}{
     A continuación, se muestran las características principales del formato de trabajos de graduación creado por la facultad de ingeniería y arquitectura de la UCA.
     
