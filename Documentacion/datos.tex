@@ -595,6 +595,436 @@ Los resultados muestran que todos los encuestados han utilizado IA y que su uso 
             \label{fig:mapa_calor_frecuencia_uso}
         \end{figure} 
 
+Los resultados muestran que la IA se utiliza principalmente con fines académicos y laborales. Las mayores frecuencias de uso aparecen en actividades relacionadas con trabajo e investigación, mientras que obtener información académica o diseño de proyectos también son comunes, aunque con una intensidad más moderada.
+
+\section{Confianza en la respuesta de la Inteligencia Artificial}
+
+En esta se les preguntó a los estudiantes en que tanto confían en la respuesta que les otorga la inteligencia artificial y también en que ámbito la utilizan, estos fueron los resultados: 
+
+\begin{figure}[H]
+    \centering
+    \resizebox{\textwidth}{!}{
+    \begin{tikzpicture}
+        \begin{axis}[
+            view={0}{90},
+            xlabel={Confianza},
+            xtick={0,1,2,3,4,5,6,7,8,9,10},
+            xticklabels={0,1,2,3,4,5,6,7,8,9,10},
+            ytick={0,1,2,3,4},
+            yticklabels={Ocio, Obtener información académica, Ayuda en procesos de investigación, Ayuda en el trabajo, Ayuda en diseño de proyectos},
+            yticklabel style={text width=5cm, align=right, font=\scriptsize},
+            xticklabel style={font=\footnotesize},
+            colormap={semaforo}{color(0)=(mygreen); color(4)=(mylightorange); color(9)=(red)},
+            mesh/cols=11,
+            enlargelimits=false,
+            colorbar,
+            colorbar style={
+                title={Cant.},
+                width=10pt
+            },
+            point meta=explicit,
+            nodes near coords,
+            nodes near coords align={center},
+            width=15cm,
+            height=8cm
+        ]
+        \addplot [matrix plot*, mesh/rows=5] coordinates {
+            (0,0)[0] (1,0)[0] (2,0)[0] (3,0)[1] (4,0)[0] (5,0)[0] (6,0)[0] (7,0)[0] (8,0)[1] (9,0)[0] (10,0)[0]
+            (0,1)[0] (1,1)[1] (2,1)[0] (3,1)[0] (4,1)[2] (5,1)[10] (6,1)[8] (7,1)[9] (8,1)[4] (9,1)[3] (10,1)[0]
+            (0,2)[0] (1,2)[0] (2,2)[1] (3,2)[1] (4,2)[8] (5,2)[6] (6,2)[1] (7,2)[5] (8,2)[2] (9,2)[0] (10,2)[0]
+            (0,3)[0] (1,3)[0] (2,3)[0] (3,3)[2] (4,3)[1] (5,3)[4] (6,3)[5] (7,3)[1] (8,3)[5] (9,3)[0] (10,3)[0]
+            (0,4)[0] (1,4)[0] (2,4)[0] (3,4)[0] (4,4)[1] (5,4)[0] (6,4)[2] (7,4)[1] (8,4)[1] (9,4)[1] (10,4)[0]
+        };
+        \end{axis}
+    \end{tikzpicture}
+    }
+    \caption{Mapa de calor Confianza x Uso}
+    \label{fig:mapa_calor_confianza_uso}
+\end{figure}
+
+Los resultados muestran que la confianza se sitúa en niveles medio-altos sin llegar a ser absoluta, lo que refleja un uso responsable en el que los estudiantes verifican la información obtenida.
+
+\section{Tramites que les ha dificultado más a los estudiantes de la universidad}
+
+Una de las preguntas que se realizo fue con respecto cuales son los tramites que para los estudiantes se les dificulta elaborar. Los resultados obtenidos fueron los siguientes: 
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \def\radius{3}
+        % Inscripción de materias (MyBlue) - 35%
+        \draw[fill=myblue, draw=white] (0,0) -- (90:\radius) arc (90:-36:\radius) -- cycle;
+        
+        % Retiro de materias (MyOrange) - 12%
+        \draw[fill=myorange, draw=white] (0,0) -- (-36:\radius) arc (-36:-79.2:\radius) -- cycle;
+        
+        % Inscripción de laboratorios (MyGreen) - 28%
+        \draw[fill=mygreen, draw=white] (0,0) -- (-79.2:\radius) arc (-79.2:-180:\radius) -- cycle;
+        
+        % Diferidos (mylightorange) - 25%
+        \draw[fill=mylightorange, draw=white] (0,0) -- (-180:\radius) arc (-180:-270:\radius) -- cycle;
+        
+        % Legend
+        \matrix [draw=none, below, xshift=0cm, yshift=-0.5cm, column sep=2pt, ampersand replacement=\&] at (current bounding box.south) {
+            \node [fill=myblue, label=right:\scriptsize Inscripción de materias] {}; \&
+            \node [fill=myorange, label=right:\scriptsize Retiro de materias] {}; \&
+            \node [fill=mygreen, label=right:\scriptsize Inscripción de laboratorios] {}; \&
+            \node [fill=mylightorange, label=right:\scriptsize Diferidos] {}; \\
+        };
+    \end{tikzpicture}
+    \caption{Trámites con mayor dificultad}
+    \label{fig:tramites_dificultad}
+\end{figure}
+
+En esta pregunta lo que se puede interpretar es la mayor dificultad a procesos asociados a la carga académica (inscripciones y laboratorios). Esto indica que los estudiantes encuentran obstáculos reiterados al momento de gestionar su matrícula. Los trámites relacionados con modificaciones posteriores (retiros, diferidos) también generan problemas, aunque en menor medida.
+
+\section{Donde suelen los estudiantes buscar la información de la universidad}
+La siguiente pregunta que se realizo fue en donde suelen los estudiantes buscar la información de la universidad y los resultados fueron los siguientes:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            ybar,
+            bar width=1cm,
+            width=\textwidth,
+            height=8cm,
+            symbolic x coords={Oficial, Correo, Amistades, Redes},
+            xtick={Oficial, Correo, Amistades, Redes},
+            xticklabels={{P\'{a}gina oficial de la Universidad}, {Correo directo por parte de los catedr\'{a}ticos}, {Por medio de amistades o compa\~{n}eros}, {Redes sociales externas}},
+            x tick label style={text width=2.5cm, align=center, font=\footnotesize},
+            nodes near coords,
+            ymin=0,
+            ymax=50,
+            enlargelimits=0.15,
+            ymajorgrids=true,
+            axis line style={draw=none},
+            tick style={draw=none},
+            ytick={0,10,20,30,40,50},
+            bar shift=0pt,
+        ]
+            \addplot[fill=red, draw=none] coordinates {(Oficial,44)};
+            \addplot[fill=yellow, draw=none] coordinates {(Correo,12)};
+            \addplot[fill=cyan, draw=none] coordinates {(Amistades,28)};
+            \addplot[fill=green!60!yellow, draw=none] coordinates {(Redes,3)};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Donde suelen los estudiantes buscar la información de la universidad}
+    \label{fig:donde_buscan_info}
+\end{figure}
+
+Aunque el canal principal sigue siendo la página oficial, una parte notable de estudiantes depende de fuentes informales como compañeros. Esto sugiere que la información oficial podría resultar insuficiente o difícil de encontrar, por lo que los estudiantes recurren a alternativas más rápidas.
+
+La universidad sí cuenta con un canal oficial, pero existe una brecha informativa que empuja a los estudiantes a consultar a sus pares, lo que puede generar inconsistencias o desinformación.
+
+\section{Situación en buscar la información de la universidad}
+%falta
+
+\section{Documentos que más se consultarían en UCAChat}
+La siguiente pregunta es con relación a cuáles documentos los estudiantes consultarian en el chatbot UCAchat, los resultados fueron los siguientes:
+
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \def\radius{3}
+        % Purple - Malla curricular
+        % Start 90, End 15
+        \draw[fill=violet!60, draw=white] (0,0) -- (90:\radius) arc (90:15:\radius) -- cycle;
+        
+        % Orange - Mapa del campus
+        % Start 15, End -60
+        \draw[fill=myorange, draw=white] (0,0) -- (15:\radius) arc (15:-60:\radius) -- cycle;
+        
+        % Green - Reglamentos
+        % Start -60, End -135
+        \draw[fill=mygreen, draw=white] (0,0) -- (-60:\radius) arc (-60:-135:\radius) -- cycle;
+        
+        % Yellow - Horario
+        % Start -135, End -210
+        \draw[fill=yellow!90!orange, draw=white] (0,0) -- (-135:\radius) arc (-135:-210:\radius) -- cycle;
+        
+        % Blue - Menu
+        % Start -210, End -270 (90)
+        \draw[fill=myblue, draw=white] (0,0) -- (-210:\radius) arc (-210:-270:\radius) -- cycle;
+
+        % Legend 2-2-1
+        \matrix [draw=none, below, xshift=0cm, yshift=-0.5cm, anchor=north, ampersand replacement=\&, column sep=0.5cm] at (current bounding box.south) {
+            \node [fill=violet!60, label=right:Malla curricular] {}; \& \node [fill=myorange, label=right:Mapa del campus] {}; \\
+            \node [fill=mygreen, label=right:Reglamentos de la universidad] {}; \& \node [fill=yellow!90!orange, label=right:Horario de materias] {}; \\
+            \node [fill=myblue, label=right:Men\'{u} de la cafeter\'{i}a] {}; \& \\
+        };
+    \end{tikzpicture}
+    \caption{Documentos que más se consultarían en UCA Chat}
+    \label{fig:docs_ucachat}
+\end{figure}
+
+Los resultados revelan que el interés principal de los estudiantes es acceder rápidamente a información académica y administrativa, especialmente aquella que influye directamente en:
+
+La planificación de clases, la inscripción y carga académica, el cumplimiento de normas universitarias. 
+
+Los documentos más solicitados corresponden a consultas frecuentes, lo que respalda la necesidad de un chatbot que centralice información dispersa o difícil de encontrar actualmente.
+
+
+\section{¿Que tanto se utilizara UCAChat?}
+En esta pregunta que hizo a los estudiantes fue que tanto utilizaran el chatbot universitario llamado UCAchat, los resultados fueron los siguientes:
+%falta
+
+\section{Características de confianza para el chatbot universitar}
+%falta
+
+\section{Información que los estudiantes prefieren que UCAChat les proporcione}
+La siguiente pregunta fue que tanta información les gustaría a los estudiantes ver en el chatbot de la universidad, estos fueron los resultados:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \def\radius{3}
+        % Blue - Eventos y actividades (~27%)
+        % Start 90, End -7.2
+        \draw[fill=blue!60, draw=white] (0,0) -- (90:\radius) arc (90:-7.2:\radius) -- cycle;
+        
+        % Pink - Noticias institucionales (~17%)
+        % Start -7.2, End -68.4
+        \draw[fill=magenta, draw=white] (0,0) -- (-7.2:\radius) arc (-7.2:-68.4:\radius) -- cycle;
+        
+        % Teal - Servicios estudiantiles (~25%)
+        % Start -68.4, End -158.4
+        \draw[fill=teal!80!cyan, draw=white] (0,0) -- (-68.4:\radius) arc (-68.4:-158.4:\radius) -- cycle;
+        
+        % Purple - Oportunidades (~31%)
+        % Start -158.4, End -270 (90)
+        \draw[fill=violet!70, draw=white] (0,0) -- (-158.4:\radius) arc (-158.4:-270:\radius) -- cycle;
+
+        % Legend 2x2
+        \def\servicesLabel{Servicios estudiantiles (cafeter\'{i}a, biblioteca, parqueo)}
+        \matrix [draw=none, below, xshift=0cm, yshift=-0.5cm, anchor=north, ampersand replacement=\&, column sep=0.2cm] at (current bounding box.south) {
+            \node [fill=blue!60, label=right:\footnotesize Eventos y actividades] {}; \& \node [fill=magenta, label=right:\footnotesize Noticias institucionales] {}; \\
+            \node [fill=teal!80!cyan, label=right:{\footnotesize \servicesLabel}] {}; \& \node [fill=violet!70, label=right:{\footnotesize Oportunidades laborales o pasant\'{i}as}] {}; \\
+        };
+    \end{tikzpicture}
+    \caption{Información proporcionada en el chatbot además de la académica}
+    \label{fig:info_adicional_chatbot}
+\end{figure}
+
+Los resultados muestran Los resultados muestran que los estudiantes desean que el chatbot no solo brinde información académica, sino también contenido que les permita estar más conectados con la vida universitaria y resolver necesidades prácticas.
+
+En conjunto, los resultados evidencian que los estudiantes buscan un chatbot integral, capaz de centralizar información académica, administrativa, de servicios y de vida universitaria, con un énfasis particular en herramientas que les ayuden a vincularse con oportunidades profesionales.
+
+\section{Riesgos y preocupaciones que tendrá el estudiante al consultar el chatbot universitario}
+En esta pregunta que se realizó a los estudiantes fue que tanto riesgos o preocupaciones tendrán al momento de hacer uso del chatbot universitario, los resultados se muestran en la Figura \ref{fig:riesgos_percibidos}.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            ybar,
+            bar width=1cm,
+            width=\textwidth,
+            height=8cm,
+            symbolic x coords={Privacidad, Info, Dificultad, Ninguna},
+            xtick={Privacidad, Info, Dificultad, Ninguna},
+            xticklabels={{Privacidad de datos}, {Informaci\'{o}n incorrecta}, {Dificultad para usarlo}, {Ninguna}},
+            x tick label style={text width=2.5cm, align=center, font=\footnotesize},
+            nodes near coords,
+            ymin=0,
+            ymax=50,
+            enlargelimits=0.15,
+            ymajorgrids=true,
+            axis line style={draw=none},
+            tick style={draw=none},
+            ytick={0,10,20,30,40,50},
+            bar shift=0pt,
+        ]
+            % Privacidad - Yellow (~31)
+            \addplot[fill=yellow!90!orange, draw=none] coordinates {(Privacidad,31)};
+            
+            % Info Incorrecta - Green (~44)
+            \addplot[fill=mygreen, draw=none] coordinates {(Info,44)};
+            
+            % Dificultad - Orange (~6)
+            \addplot[fill=myorange, draw=none] coordinates {(Dificultad,6)};
+            
+            % Ninguna - Blue (~6)
+            \addplot[fill=blue!60, draw=none] coordinates {(Ninguna,6)};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Riesgos percibidos}
+    \label{fig:riesgos_percibidos}
+\end{figure} 
+
+\section{Satisfacción con los medios actuales para obtener la información de la universidad}
+%falta
+
+\section{Dificultad de los estudiantes en la comunicación con el personal administrativo o los catedráticos}
+%falta
+
+\section{Preferencia del tipo de lenguaje para el chatbot}
+La siguiente pregunta fue sobre qué tipo de lenguaje prefieren los estudiantes que use el chatbot, los resultados se muestran en la Figura \ref{fig:preferencia_lenguaje}.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            ybar,
+            bar width=1cm,
+            width=\textwidth,
+            height=8cm,
+            symbolic x coords={Formal, Amigable, Neutro},
+            xtick={Formal, Amigable, Neutro},
+            xticklabels={{Formal y t\'{e}cnico}, {Amigable y sencillo}, {Neutro}},
+            x tick label style={text width=2.5cm, align=center, font=\footnotesize},
+            nodes near coords,
+            ymin=0,
+            ymax=70,
+            enlargelimits=0.15,
+            ymajorgrids=true,
+            axis line style={draw=none},
+            tick style={draw=none},
+            ytick={0,10,20,30,40,50,60,70},
+            bar shift=0pt,
+        ]
+            % Formal - Blue (10)
+            \addplot[fill=blue!60, draw=none] coordinates {(Formal,10)};
+            
+            % Amigable - Green (57)
+            \addplot[fill=mygreen, draw=none] coordinates {(Amigable,57)};
+            
+            % Neutro - Yellow (20)
+            \addplot[fill=yellow!90!orange, draw=none] coordinates {(Neutro,20)};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Preferencia en el lenguaje que use UCA Chat}
+    \label{fig:preferencia_lenguaje}
+\end{figure}
+
+La mayoría de los estudiantes espera que el chatbot use un estilo amigable, cercano y claro, que facilite la comprensión y agilice las consultas. para que sea más comprensible para cualquier persona que ocupe el UCAChat.
+
+\section{Preferencia de los estudiantes sobre la personalidad (nombre o avatar) que el chatbot maneje}
+La siguiente pregunta fue sobre si los estudiantes prefieren que el chatbot tenga una personalidad definida (nombre o avatar), los resultados se muestran en la Figura \ref{fig:preferencia_personalidad}.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            ybar,
+            bar width=1cm,
+            width=\textwidth,
+            height=8cm,
+            symbolic x coords={Si, No, Igual},
+            xtick={Si, No, Igual},
+            xticklabels={Si, No, Me da igual},
+            x tick label style={text width=2.5cm, align=center, font=\footnotesize},
+            nodes near coords,
+            ymin=0,
+            ymax=50,
+            enlargelimits=0.15,
+            ymajorgrids=true,
+            axis line style={draw=none},
+            tick style={draw=none},
+            ytick={0,10,20,30,40,50},
+            bar shift=0pt,
+        ]
+            % Si - Green (43)
+            \addplot[fill=mygreen, draw=none] coordinates {(Si,43)};
+            
+            % No - Red (6)
+            \addplot[fill=red, draw=none] coordinates {(No,6)};
+            
+            % Igual - Yellow (38)
+            \addplot[fill=yellow!90!orange, draw=none] coordinates {(Igual,38)};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Preferencia en la personalidad de UcaChat}
+    \label{fig:preferencia_personalidad}
+\end{figure}
+
+\section{Comodidad de los estudiantes al utilizar herramientas digitales o aplicaciones nuevas}
+La siguiente pregunta fue para conocer qué tan cómodos se sienten los estudiantes al utilizar nuevas tecnologías, los resultados se muestran en la Figura \ref{fig:adaptacion_tecnologias}.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            ybar,
+            bar width=1cm,
+            width=\textwidth,
+            height=8cm,
+            symbolic x coords={Muy, Algo, Poco, Inc},
+            xtick={Muy, Algo, Poco, Inc},
+            xticklabels={{Muy c\'{o}modo}, {Algo c\'{o}modo}, {Poco c\'{o}modo}, {Inc\'{o}modo}},
+            x tick label style={text width=2.5cm, align=center, font=\footnotesize},
+            nodes near coords,
+            ymin=0,
+            ymax=60,
+            enlargelimits=0.15,
+            ymajorgrids=true,
+            axis line style={draw=none},
+            tick style={draw=none},
+            ytick={0,10,20,30,40,50,60},
+            bar shift=0pt,
+        ]
+            % Muy comodo - Yellow (50)
+            \addplot[fill=yellow!90!orange, draw=none] coordinates {(Muy,50)};
+            
+            % Algo comodo - Green (35)
+            \addplot[fill=mygreen, draw=none] coordinates {(Algo,35)};
+            
+            % Poco comodo - Blue (2)
+            \addplot[fill=blue!60, draw=none] coordinates {(Poco,2)};
+
+            % Incomodo - Red (0)
+            \addplot[fill=red, draw=none] coordinates {(Inc,0)};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Adaptación a nuevas tecnologías}
+    \label{fig:adaptacion_tecnologias}
+\end{figure}
+
+Los resultados muestran que la población encuestada posee un alto nivel de familiaridad y adaptación tecnológica, lo cual facilita la adopción de nuevas plataformas institucionales, incluyendo un a UCAChat.
+
+\section{Consideración sobre el uso de la Inteligencia Artificial en las universidades puede mejorar la experiencia estudiantil}
+La siguiente pregunta fue para conocer la opinión de los estudiantes sobre si el uso de la IA en las universidades puede mejorar su experiencia, los resultados se muestran en la Figura \ref{fig:ia_mejora_experiencia}.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            ybar,
+            bar width=1cm,
+            width=\textwidth,
+            height=8cm,
+            symbolic x coords={Si, Algo, Poco, No},
+            xtick={Si, Algo, Poco, No},
+            xticklabels={{Si, mucho}, {Algo}, {Poco}, {No}},
+            x tick label style={text width=2.5cm, align=center, font=\footnotesize},
+            nodes near coords,
+            ymin=0,
+            ymax=60,
+            enlargelimits=0.15,
+            ymajorgrids=true,
+            axis line style={draw=none},
+            tick style={draw=none},
+            ytick={0,10,20,30,40,50,60},
+            bar shift=0pt,
+        ]
+            % Si, mucho - Green (53)
+            \addplot[fill=mygreen, draw=none] coordinates {(Si,53)};
+            
+            % Algo - Blue (28)
+            \addplot[fill=blue!60, draw=none] coordinates {(Algo,28)};
+            
+            % Poco - Yellow (6)
+            \addplot[fill=yellow!90!orange, draw=none] coordinates {(Poco,6)};
+
+            % No - Red (0)
+            \addplot[fill=red, draw=none] coordinates {(No,0)};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Consideración sobre si la IA puede mejorar la experiencia estudiantil}
+    \label{fig:ia_mejora_experiencia}
+\end{figure}
+
 
 
 
