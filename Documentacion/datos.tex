@@ -456,41 +456,6 @@ Reconocer estas limitaciones no disminuye el valor del proyecto, sino que enmarc
     \section{Año de la carrera y la facultad de grado }
     Las primeras dos preguntas buscan identificar el año y la facultad que el estudiante se encuentra, dando como resultado lo siguiente:
 
-    \tabla{V}{
-            \begin{table}[H]
-            \centering
-            \begin{tabular}{|l|l|r|}
-            \hline
-            \textbf{Tipo} & \textbf{Año} & \textbf{Cantidad} \\ \hline
-            Opción Cerrada & Primero & 31 \\ \cline{2-3}
-                           & Segundo & 9 \\ \cline{2-3}
-                           & Tercero & 12 \\ \cline{2-3}
-                           & Cuarto & 18 \\ \cline{2-3}
-                           & Quinto & 17 \\ \hline
-            \textbf{Total} & & \textbf{87} \\ \hline
-            \end{tabular}
-            \caption{Año de carrera de los encuestados}
-            \label{tab:anio_carrera}
-            \end{table}
-        }
-
-        \tabla{V}{
-            \begin{table}[H]
-            \centering
-            \begin{tabular}{|l|l|r|}
-            \hline
-            \textbf{Tipo} & \textbf{Facultad} & \textbf{Cantidad} \\ \hline
-            Opción Cerrada & Ingeniería y Arquitectura & 87 \\ \cline{2-3}
-                           & Ciencias Sociales y Humanidades & 0 \\ \cline{2-3}
-                           & Ciencias Económicas y Empresariales & 0 \\ \hline
-            \textbf{Total} & & \textbf{87} \\ \hline
-            \end{tabular}
-            \caption{Facultad de los encuestados}
-            \label{tab:facultad}
-            \end{table}
-        }
-
-        \subsection{Análisis de la muestra}
         \begin{figure}[H]
             \centering
             \begin{tikzpicture}
@@ -499,7 +464,6 @@ Reconocer estas limitaciones no disminuye el valor del proyecto, sino que enmarc
                     bar width=30pt,
                     nodes near coords,
                     enlargelimits=0.15,
-                    legend style={at={(0.5,-0.2)}, anchor=north, legend columns=-1},
                     ylabel={Cantidad},
                     symbolic x coords={Ingeniería y Arquitectura, Ciencias Sociales y Humanidades, Ciencias Económicas y Empresariales},
                     xtick=data,
@@ -507,15 +471,21 @@ Reconocer estas limitaciones no disminuye el valor del proyecto, sino que enmarc
                     ymin=0,
                     ymax=100,
                     width=\textwidth,
-                    height=8cm
+                    height=8cm,
+                    axis line style={draw=none},
+                    tick style={draw=none},
+                    ymajorgrids=true
                 ]
-                \addplot coordinates {(Ingeniería y Arquitectura,31) (Ciencias Sociales y Humanidades,0) (Ciencias Económicas y Empresariales,0)};
-                \addplot coordinates {(Ingeniería y Arquitectura,9) (Ciencias Sociales y Humanidades,0) (Ciencias Económicas y Empresariales,0)};
-                \addplot coordinates {(Ingeniería y Arquitectura,12) (Ciencias Sociales y Humanidades,0) (Ciencias Económicas y Empresariales,0)};
-                \addplot coordinates {(Ingeniería y Arquitectura,18) (Ciencias Sociales y Humanidades,0) (Ciencias Económicas y Empresariales,0)};
-                \addplot coordinates {(Ingeniería y Arquitectura,17) (Ciencias Sociales y Humanidades,0) (Ciencias Económicas y Empresariales,0)};
-                \legend{Primero, Segundo, Tercero, Cuarto, Quinto}
+                \addplot[fill=violet!60, draw=none] coordinates {(Ingeniería y Arquitectura,31) (Ciencias Sociales y Humanidades,0) (Ciencias Económicas y Empresariales,0)};
+                \addplot[fill=myorange, draw=none] coordinates {(Ingeniería y Arquitectura,9) (Ciencias Sociales y Humanidades,0) (Ciencias Económicas y Empresariales,0)};
+                \addplot[fill=mygreen, draw=none] coordinates {(Ingeniería y Arquitectura,12) (Ciencias Sociales y Humanidades,0) (Ciencias Económicas y Empresariales,0)};
+                \addplot[fill=yellow!90!orange, draw=none] coordinates {(Ingeniería y Arquitectura,18) (Ciencias Sociales y Humanidades,0) (Ciencias Económicas y Empresariales,0)};
+                \addplot[fill=blue!60, draw=none] coordinates {(Ingeniería y Arquitectura,17) (Ciencias Sociales y Humanidades,0) (Ciencias Económicas y Empresariales,0)};
                 \end{axis}
+                \matrix [draw=none, below, xshift=0cm, yshift=-0.5cm, anchor=north, ampersand replacement=\&, column sep=0.5cm] at (current bounding box.south) {
+                    \node [fill=violet!60, label=right:Primero] {}; \& \node [fill=myorange, label=right:Segundo] {}; \& \node [fill=mygreen, label=right:Tercero] {}; \\
+                    \node [fill=yellow!90!orange, label=right:Cuarto] {}; \& \node [fill=blue!60, label=right:Quinto] {}; \& \\
+                };
             \end{tikzpicture}
             \caption{Grafico eAño de carrera y Facultad }
             \label{fig:anio_facultad}
@@ -529,23 +499,26 @@ Reconocer estas limitaciones no disminuye el valor del proyecto, sino que enmarc
             \centering
             \begin{tikzpicture}
                 \begin{axis}[
-                    ybar stacked,
-                    bar width=30pt,
+                    ybar,
+                    bar width=1cm,
                     nodes near coords,
                     enlargelimits=0.15,
-                    legend style={at={(0.5,-0.2)}, anchor=north, legend columns=-1},
                     ylabel={Cantidad},
-                    symbolic x coords={Sí, No},
-                    xtick=data,
-                    x tick label style={rotate=0, anchor=north, align=center, text width=4cm, font=\small},
+                    symbolic x coords={Si, No},
+                    xtick={Si, No},
+                    xticklabels={{S\'{i}}, {No}},
+                    x tick label style={text width=2.5cm, align=center, font=\footnotesize},
                     ymin=0,
                     ymax=100,
                     width=\textwidth,
-                    height=8cm
+                    height=8cm,
+                    bar shift=0pt,
+                    axis line style={draw=none},
+                    tick style={draw=none},
+                    ymajorgrids=true
                 ]
-                \addplot coordinates {(Sí,87) (No,0)};
-                \addplot coordinates {(Sí,0) (No,0)};
-                \legend{Sí, No}
+                \addplot[fill=mygreen, draw=none] coordinates {(Si,87)};
+                \addplot[fill=red, draw=none] coordinates {(No,0)};
                 \end{axis}
             \end{tikzpicture}
             \caption{Uso de la IA}
@@ -665,11 +638,11 @@ Una de las preguntas que se realizo fue con respecto cuales son los tramites que
         \draw[fill=mylightorange, draw=white] (0,0) -- (-180:\radius) arc (-180:-270:\radius) -- cycle;
         
         % Legend
-        \matrix [draw=none, below, xshift=0cm, yshift=-0.5cm, column sep=2pt, ampersand replacement=\&] at (current bounding box.south) {
-            \node [fill=myblue, label=right:\scriptsize Inscripción de materias] {}; \&
-            \node [fill=myorange, label=right:\scriptsize Retiro de materias] {}; \&
-            \node [fill=mygreen, label=right:\scriptsize Inscripción de laboratorios] {}; \&
-            \node [fill=mylightorange, label=right:\scriptsize Diferidos] {}; \\
+        \matrix [draw=none, below, xshift=0cm, yshift=-0.5cm, column sep=0.5cm, ampersand replacement=\&] at (current bounding box.south) {
+            \node [fill=myblue, label=right:\footnotesize Inscripción de materias] {}; \&
+            \node [fill=myorange, label=right:\footnotesize Retiro de materias] {}; \\
+            \node [fill=mygreen, label=right:\footnotesize Inscripción de laboratorios] {}; \&
+            \node [fill=mylightorange, label=right:\footnotesize Diferidos] {}; \\
         };
     \end{tikzpicture}
     \caption{Trámites con mayor dificultad}
@@ -703,10 +676,10 @@ La siguiente pregunta que se realizo fue en donde suelen los estudiantes buscar 
             ytick={0,10,20,30,40,50},
             bar shift=0pt,
         ]
-            \addplot[fill=red, draw=none] coordinates {(Oficial,44)};
-            \addplot[fill=yellow, draw=none] coordinates {(Correo,12)};
-            \addplot[fill=cyan, draw=none] coordinates {(Amistades,28)};
-            \addplot[fill=green!60!yellow, draw=none] coordinates {(Redes,3)};
+            \addplot[fill=myblue, draw=none] coordinates {(Oficial,44)};
+            \addplot[fill=myorange, draw=none] coordinates {(Correo,12)};
+            \addplot[fill=violet!60, draw=none] coordinates {(Amistades,28)};
+            \addplot[fill=mygreen, draw=none] coordinates {(Redes,3)};
         \end{axis}
     \end{tikzpicture}
     \caption{Donde suelen los estudiantes buscar la información de la universidad}
@@ -718,7 +691,31 @@ Aunque el canal principal sigue siendo la página oficial, una parte notable de 
 La universidad sí cuenta con un canal oficial, pero existe una brecha informativa que empuja a los estudiantes a consultar a sus pares, lo que puede generar inconsistencias o desinformación.
 
 \section{Situación en buscar la información de la universidad}
-%falta
+        En esta sección se presentan los resultados obtenidos al consultar a los estudiantes sobre la facilidad o dificultad al buscar información de la universidad, utilizando una escala numérica.
+
+        \begin{table}[H]
+            \centering
+            \caption{Situación en buscar la información de la universidad}
+            \begin{tabular}{|l|c|c|}
+                \hline
+                \textbf{Tipo} & \textbf{Categoría} & \textbf{Frecuencia} \\ \hline
+                Escala & 0 & 0 \\ \cline{2-3} 
+                Numérica & 1 & 0 \\ \cline{2-3} 
+                (0-10) & 2 & 7 \\ \cline{2-3} 
+                 & 3 & 5 \\ \cline{2-3} 
+                 & 4 & 6 \\ \cline{2-3} 
+                 & 5 & 16 \\ \cline{2-3} 
+                 & 6 & 20 \\ \cline{2-3} 
+                 & 7 & 14 \\ \cline{2-3} 
+                 & 8 & 10 \\ \cline{2-3} 
+                 & 9 & 4 \\ \cline{2-3} 
+                 & 10 & 5 \\ \hline
+                \textbf{Total} & \multicolumn{1}{c|}{} & \textbf{87} \\ \hline
+            \end{tabular}
+            \label{tab:situacion_buscar_info}
+        \end{table}
+
+        Estos resultados reflejan una necesidad de mejora en la accesibilidad y claridad de la información institucional, lo que respalda la pertinencia de implementar un chatbot universitario como una herramienta que simplifique la búsqueda de información, reduzca el esfuerzo requerido por los estudiantes y mejore su experiencia general.
 
 \section{Documentos que más se consultarían en UCAChat}
 La siguiente pregunta es con relación a cuáles documentos los estudiantes consultarian en el chatbot UCAchat, los resultados fueron los siguientes:
@@ -766,12 +763,70 @@ La planificación de clases, la inscripción y carga académica, el cumplimiento
 Los documentos más solicitados corresponden a consultas frecuentes, lo que respalda la necesidad de un chatbot que centralice información dispersa o difícil de encontrar actualmente.
 
 
-\section{¿Que tanto se utilizara UCAChat?}
-En esta pregunta que hizo a los estudiantes fue que tanto utilizaran el chatbot universitario llamado UCAchat, los resultados fueron los siguientes:
-%falta
+\section{Frecuencia estimada de uso de UCAChat}
+
+En esta sección se presentan los resultados obtenidos al consultar a los estudiantes sobre la frecuencia estimada de uso del chatbot universitario UCAchat, utilizando una escala numérica.
+
+\begin{table}[H]
+    \centering
+    \caption{Frecuencia de uso del chatbot universitario}
+    \begin{tabular}{|l|c|c|}
+        \hline
+        \textbf{Tipo} & \textbf{Categoría} & \textbf{Frecuencia} \\ \hline
+        Escala & 0 & 0 \\ \cline{2-3} 
+        Numérica & 1 & 2 \\ \cline{2-3} 
+        (0-10) & 2 & 6 \\ \cline{2-3} 
+         & 3 & 5 \\ \cline{2-3} 
+         & 4 & 8 \\ \cline{2-3} 
+         & 5 & 13 \\ \cline{2-3} 
+         & 6 & 14 \\ \cline{2-3} 
+         & 7 & 10 \\ \cline{2-3} 
+         & 8 & 15 \\ \cline{2-3} 
+         & 9 & 9 \\ \cline{2-3} 
+         & 10 & 5 \\ \hline
+        \textbf{Total} & \multicolumn{1}{c|}{} & \textbf{87} \\ \hline
+    \end{tabular}
+    \label{tab:uso_ucachat}
+\end{table}
+
+Los resultados indican que UCAChat tendría una alta aceptación y un uso frecuente por parte de los estudiantes. Esta predisposición positiva refuerza la viabilidad de la implementación de UCAChat, ya que los estudiantes no solo están abiertos a utilizarlo, sino que lo perciben como una herramienta con potencial real para apoyar sus actividades académicas y administrativas, siempre que ofrezca información confiable y de fácil acceso.
 
 \section{Características de confianza para el chatbot universitar}
-%falta
+Para garantizar la confianza en el uso de UCAChat, se consultó a los estudiantes sobre las características que consideran indispensables. Los resultados se detallan a continuación:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            ybar,
+            bar width=1cm,
+            nodes near coords,
+            enlargelimits=0.15,
+            ylabel={Cantidad},
+            symbolic x coords={Actualizada, Fuentes, Claro, Contacto},
+            xtick={Actualizada, Fuentes, Claro, Contacto},
+            xticklabels={{Que la información sea actualizada}, {Que cite fuentes oficiales}, {Que tenga lenguaje claro}, {Que permita contactar a personal real si es necesario}},
+            x tick label style={text width=2.5cm, align=center, font=\footnotesize},
+            ymin=0,
+            ymax=80,
+            width=\textwidth,
+            height=8cm,
+            bar shift=0pt,
+            axis line style={draw=none},
+            tick style={draw=none},
+            ymajorgrids=true
+        ]
+        \addplot[fill=yellow!90!orange, draw=none] coordinates {(Actualizada,75)};
+        \addplot[fill=red, draw=none] coordinates {(Fuentes,54)};
+        \addplot[fill=mygreen, draw=none] coordinates {(Claro,44)};
+        \addplot[fill=blue!60, draw=none] coordinates {(Contacto,54)};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Características de confianza para el chatbot universitario}
+    \label{fig:confianza_chatbot}
+\end{figure}
+
+Los resultados evidencian que la actualización constante de la información es el factor más determinante para generar confianza en el chatbot universitario, al ser seleccionada por la gran mayoría de los encuestados. Esto refleja una preocupación clara por la vigencia y exactitud de los datos, especialmente en un entorno universitario donde los procesos, fechas y normativas pueden cambiar con frecuencia.
 
 \section{Información que los estudiantes prefieren que UCAChat les proporcione}
 La siguiente pregunta fue que tanta información les gustaría a los estudiantes ver en el chatbot de la universidad, estos fueron los resultados:
@@ -854,10 +909,60 @@ En esta pregunta que se realizó a los estudiantes fue que tanto riesgos o preoc
 \end{figure} 
 
 \section{Satisfacción con los medios actuales para obtener la información de la universidad}
-%falta
+En esta sección se presentan los resultados obtenidos al consultar a los estudiantes sobre su nivel de satisfacción con los medios actuales para obtener información de la universidad, utilizando una escala numérica.
+
+\begin{table}[H]
+    \centering
+    \caption{Satisfacción con los medios actuales para obtener la información de la universidad}
+    \begin{tabular}{|l|c|c|}
+        \hline
+        \textbf{Tipo} & \textbf{Categoría} & \textbf{Frecuencia} \\ \hline
+        Escala & 0 & 2 \\ \cline{2-3} 
+        Numérica & 1 & 1 \\ \cline{2-3} 
+        (0-10) & 2 & 6 \\ \cline{2-3} 
+         & 3 & 1 \\ \cline{2-3} 
+         & 4 & 9 \\ \cline{2-3} 
+         & 5 & 16 \\ \cline{2-3} 
+         & 6 & 17 \\ \cline{2-3} 
+         & 7 & 16 \\ \cline{2-3} 
+         & 8 & 12 \\ \cline{2-3} 
+         & 9 & 5 \\ \cline{2-3} 
+         & 10 & 2 \\ \hline
+        \textbf{Total} & \multicolumn{1}{c|}{} & \textbf{87} \\ \hline
+    \end{tabular}
+    \label{tab:satisfaccion_medios_actuales}
+\end{table}
+
+Estos resultados reflejan una satisfacción moderada, lo que confirma la existencia de oportunidades de mejora en la forma en que la universidad comunica su información. Este escenario refuerza la pertinencia de implementar herramientas alternativas, como un chatbot universitario, que permitan mejorar la accesibilidad, claridad y rapidez en el acceso a la información institucional.
 
 \section{Dificultad de los estudiantes en la comunicación con el personal administrativo o los catedráticos}
-%falta
+En esta sección se presentan los resultados obtenidos al consultar a los estudiantes sobre la dificultad que han experimentado al comunicarse con el personal administrativo o catedráticos, utilizando una escala numérica.
+
+\begin{table}[H]
+    \centering
+    \caption{Dificultad de los estudiantes en la comunicación con el personal administrativo o los catedráticos}
+    \begin{tabular}{|l|c|c|}
+        \hline
+        \textbf{Tipo} & \textbf{Categoría} & \textbf{Frecuencia} \\ \hline
+        Escala & 0 & 3 \\ \cline{2-3} 
+        Numérica & 1 & 5 \\ \cline{2-3} 
+        (0-10) & 2 & 12 \\ \cline{2-3} 
+         & 3 & 8 \\ \cline{2-3} 
+         & 4 & 12 \\ \cline{2-3} 
+         & 5 & 11 \\ \cline{2-3} 
+         & 6 & 12 \\ \cline{2-3} 
+         & 7 & 10 \\ \cline{2-3} 
+         & 8 & 4 \\ \cline{2-3} 
+         & 9 & 5 \\ \cline{2-3} 
+         & 10 & 5 \\ \hline
+        \textbf{Total} & \multicolumn{1}{c|}{} & \textbf{87} \\ \hline
+    \end{tabular}
+    \label{tab:dificultad_comunicacion}
+\end{table}
+
+Los resultados muestran que los estudiantes sí han experimentado dificultades para comunicarse con personal administrativo o catedráticos, aunque estas no se concentran exclusivamente en los niveles extremos. Las respuestas se distribuyen principalmente en valores medios de la escala (entre 4 y 6), lo que indica que la dificultad es moderada pero recurrente.
+
+Destaca que una cantidad considerable de estudiantes ubicó su experiencia en los niveles 2, 4 y 6, lo cual refleja una percepción desigual: mientras algunos consideran que la comunicación es relativamente accesible, otros enfrentan obstáculos frecuentes. La presencia de respuestas en los valores altos (7 a 10) confirma que existe un grupo significativo que percibe la comunicación como complicada, especialmente cuando se requiere resolver dudas o trámites específicos.
 
 \section{Preferencia del tipo de lenguaje para el chatbot}
 La siguiente pregunta fue sobre qué tipo de lenguaje prefieren los estudiantes que use el chatbot, los resultados se muestran en la Figura \ref{fig:preferencia_lenguaje}.
@@ -1025,6 +1130,32 @@ La siguiente pregunta fue para conocer la opinión de los estudiantes sobre si e
     \label{fig:ia_mejora_experiencia}
 \end{figure}
 
+\section{Percepción sobre la reducción de tiempo en trámites}
+En esta pregunta se consultó a los estudiantes si consideran que la implementación de UCAchat podría reducir el tiempo que invierten en realizar trámites, utilizando una escala numérica.
+
+\begin{table}[H]
+    \centering
+    \caption{Frecuencia estimada de uso de UCAchat}
+    \begin{tabular}{|l|c|c|}
+        \hline
+        \textbf{Tipo} & \textbf{Categoría} & \textbf{Frecuencia} \\ \hline
+        Escala & 0 & 0 \\ \cline{2-3} 
+        Numérica & 1 & 0 \\ \cline{2-3} 
+        (0-10) & 2 & 1 \\ \cline{2-3} 
+         & 3 & 3 \\ \cline{2-3} 
+         & 4 & 3 \\ \cline{2-3} 
+         & 5 & 12 \\ \cline{2-3} 
+         & 6 & 9 \\ \cline{2-3} 
+         & 7 & 12 \\ \cline{2-3} 
+         & 8 & 16 \\ \cline{2-3} 
+         & 9 & 14 \\ \cline{2-3} 
+         & 10 & 17 \\ \hline
+        \textbf{Total} & \multicolumn{1}{c|}{} & \textbf{87} \\ \hline
+    \end{tabular}
+    \label{tab:reduccion_tiempo_tramites}
+\end{table}
+
+La mayoría considera que un chatbot universitario tendría un impacto significativo en reducir los tiempos de trámites, reforzando su necesidad y utilidad dentro de la experiencia estudiantil. Esto valida la propuesta del proyecto.
 
 
 
