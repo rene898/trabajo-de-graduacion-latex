@@ -33,12 +33,12 @@
 \newcommand{\carrera}{0}
 
 \autor{WALTER RAFAEL MORALES HENRIQUEZ}{H} % Autor 1
-%\autor{MONICA ALEJANDRA VEGA FLORES}{M} % Autor 2 (opcional)
+\autor{MONICA ALEJANDRA VEGA FLORES}{M} % Autor 2 (opcional)
 \autor{OMAR ALFREDO VASQUEZ ESCAMILLA}{H} % Autor 3 (opcional)
 \autor{RENE ARMANDO FLORES CORTEZ}{H} % Autor 4 (opcional)
 
 
-\newcommand{\mesdegraduacion}{Mes y año de graduación} % Mes y año de graduación
+\newcommand{\mesdegraduacion}{Mayo 2026} % Mes y año de graduación
 
 %================================================================
 %            Sección editable para segunda portada
@@ -46,15 +46,15 @@
 % ================ NO MODIFICAR LOS COMANDOS ====================
 % ===============================================================
 
-\newcommand{\rector}{Nombre del rector}% Nombre del rector
+\newcommand{\rector}{Padre Mario Cornejo, S.J.}% Nombre del rector
 \newcommand{\sexorector}{masculino} % Sexo del secretario o secretaria general
-\newcommand{\secretariogeneral}{Nombre del secretario o secretaria general} % Nombre del secretario o secretaria general
+\newcommand{\secretariogeneral}{Mauricio Murillo, S.J.} % Nombre del secretario o secretaria general
 \newcommand{\sexosecretario}{masculino} % Sexo del secretario o secretaria general
-\newcommand{\decano}{Nombre del decano de la facultad de ingeniería y arquitectura} % Nombre del decano de la facultad de ingeniería y arquitectura
+\newcommand{\decano}{Carlos Ernesto Rivas.} % Nombre del decano de la facultad de ingeniería y arquitectura
 \newcommand{\sexodecano}{masculino} % Sexo del secretario o secretaria general
-\newcommand{\directordecarrera}{Nombre del director de la carrera} % Director de la carrera
+\newcommand{\directordecarrera}{Mtro. José Enmanuel Amaya Araujo.} % Director de la carrera
 \newcommand{\sexodirectordecarrera}{masculino} % Sexo del secretario o secretaria general
-\newcommand{\directordetrabajo}{Nombre del director del trabajo de graduación} % Director del trabajo de graduación
+\newcommand{\directordetrabajo}{Guillermo Ernesto Cotes Villeda.} % Director del trabajo de graduación
 \newcommand{\sexodirectordetrabajo}{masculino} % Sexo del secretario o secretaria general
 \newcommand{\lector}{Nombre del lector o lectora} % Nombre del lector o lectora
 \newcommand{\sexolector}{masculino} % Sexo del lector o lectora
@@ -98,7 +98,21 @@ La solución se basa en una arquitectura de Retrieval-Augmented Generation (RAG)
 % ================== NO MODIFICAR LOS COMANDOS ===================
 % ================================================================
 
-\itemsiglas{Siglas}{En esta sección se deben escribir las siglas que se utilizan en el trabajo. Una sigla es una palabra conformada por las iniciales de un nombre o expresión compuesta por varias palabras, por ejemplo ONU (Organización de las Naciones Unidas).}
+\itemsiglas{UCA}{Universidad Centroamericana José Simeón Cañas}
+\itemsiglas{IA}{Inteligencia Artificial}
+\itemsiglas{LLM}{Large Language Model (Modelo de Lenguaje Grande)}
+\itemsiglas{RAG}{Retrieval-Augmented Generation (Generación Aumentada por Recuperación)}
+\itemsiglas{PLN}{Procesamiento de Lenguaje Natural}
+\itemsiglas{MIT}{Massachusetts Institute of Technology (Instituto de Tecnología de Massachusetts)}
+\itemsiglas{API}{Application Programming Interface (Interfaz de Programación de Aplicaciones)}
+\itemsiglas{GPU}{Graphics Processing Unit (Unidad de Procesamiento Gráfico)}
+\itemsiglas{SQL}{Structured Query Language (Lenguaje de Consulta Estructurada)}
+\itemsiglas{UI}{User Interface (Interfaz de Usuario)}
+\itemsiglas{MaaS}{Model-as-a-Service (Modelo como Servicio)}
+\itemsiglas{ANN}{Approximate Nearest Neighbor (Vecino Más Cercano Aproximado)}
+\itemsiglas{HNSW}{Hierarchical Navigable Small World}
+\itemsiglas{FAIR}{Facebook AI Research}
+\itemsiglas{RAGAS}{Retrieval Augmented Generation Assessment}
 
 %=================================================================
 %                 Sección editable para abreviaturas
@@ -106,9 +120,10 @@ La solución se basa en una arquitectura de Retrieval-Augmented Generation (RAG)
 % ================== NO MODIFICAR LOS COMANDOS ===================
 % ================================================================
 
-\itemabreviatura{Abreviaturas}{En esta sección se deben escribir las abreviaturas que se utilizan en el trabajo. Las\newline abreviaturas son representaciones reducidas de una palabra, por ejemplo\newline Sr.(Señor), no se debe abusar de ellas y no se deben colocar las unidades de medida.}
-\itemabreviatura{}{}
-\itemabreviatura{}{}
+\itemabreviatura{S.J.}{Societas Jesu (Compañía de Jesús)}
+\itemabreviatura{Mtro.}{Maestro}
+\itemabreviatura{Ec.}{Ecuación}
+\itemabreviatura{etc.}{Etcétera}
 
 %=================================================================
 %               Sección editable para nomenclatura
@@ -116,9 +131,7 @@ La solución se basa en una arquitectura de Retrieval-Augmented Generation (RAG)
 % ================== NO MODIFICAR LOS COMANDOS ===================
 % ================================================================
 
-\itemnomenclatura{Nomenclaturas}{En esta sección se debe escribir la nomenclatura que se utiliza en el trabajo. La nomenclatura son los diferentes símbolos que se utilizan en un ámbito especifico de las ciencias, por ejemplo en el área de química $H2O$(formula del agua) o en física $V$(Voltaje).}
-\itemnomenclatura{}{}
-\itemnomenclatura{}{}
+\itemnomenclatura{$K$}{Número de elementos a recuperar en una búsqueda vectorial}
 
 %=================================================================
 %          Sección editable para capítulo de introcuccion
@@ -1306,10 +1319,19 @@ La mayoría considera que un chatbot universitario tendría un impacto significa
 % ================= NO MODIFICAR LOS COMANDOS ===================
 % ================================================================
 
-\newenvironment{conclusiones}{En esta sección se escriben las conclusiones a las que se ha llegado luego de realizar el trabajo, las conclusiones deben concordar con los objetivos planteados anteriormente.}{}
+\newenvironment{conclusiones}{
+    \begin{listaenumerada}
+        \item La implementación del prototipo UCAchat, basado en una arquitectura de Retrieval-Augmented Generation (RAG), demostró ser una solución viable y pertinente para centralizar la información académica y administrativa de la Universidad Centroamericana José Simeón Cañas. El uso de documentos institucionales como base de conocimiento permitió ofrecer respuestas más precisas, verificables y alineadas con la realidad universitaria, mitigando el riesgo de desinformación y alucinaciones propias de los modelos de lenguaje tradicionales.
+        \item Los resultados obtenidos a partir de la encuesta aplicada a los estudiantes evidencian una alta aceptación y disposición al uso de herramientas basadas en inteligencia artificial, especialmente entre estudiantes de nuevo ingreso. Se identificó que los principales problemas actuales radican en la dispersión de la información y la dificultad para realizar trámites académicos, lo cual valida la necesidad de un asistente conversacional institucional que reduzca tiempos, facilite la toma de decisiones y mejore la experiencia estudiantil.
+        \item El desarrollo del prototipo permitió comprobar que un chatbot universitario no solo puede funcionar como un canal informativo, sino también como un apoyo estratégico en la comunicación institucional, siempre que se acompañe de una adecuada gestión de la base de conocimiento y consideraciones éticas claras. En este sentido, UCAchat se posiciona como una herramienta complementaria al personal administrativo, capaz de fortalecer la autonomía del estudiante sin reemplazar la atención humana en procesos complejos.
+    \end{listaenumerada}
+}{}
 
 \newenvironment{recomendaciones}{
-En esta sección, se presentan las recomendaciones hechas por el grupo de trabajo para las personas que se beneficiarán del estudio o proyecto realizado.
+    \begin{lista}
+        \item Es esencial mantener al día el chatbot universitario conocido como UCAchat. Esto se debe a que en futuras versiones, el estudiante podría requerir la búsqueda de información reciente de la universidad o de un documento específico, lo cual podría no estar actualizado. Por lo tanto, será necesario mantener su actualización anualmente.
+        \item Es necesario designar un equipo o un responsable institucional encargado de la administración de la base de conocimiento de UCAchat, con el fin de verificar la veracidad, coherencia y vigencia de la información divulgada. Esto permitirá la disminución del riesgo de desinformación y el incremento de la confianza de los estudiantes en las respuestas proporcionadas por el chatbot de la universidad.
+    \end{lista}
 }{}
 
 %=================================================================
@@ -1319,9 +1341,19 @@ En esta sección, se presentan las recomendaciones hechas por el grupo de trabaj
 % ================================================================
 
 \newcommand{\mostrarglosario}{true}
-\itemglosario{Glosario}{En esta sección, se incluyen términos utilizados en el documento cuya definición podría\newline no ser conocida por el lector, especialmente aquellos de carácter técnico. Esta sección\newline es opcional, como por ejemplo: BackEnd (Parte de una aplicación web que gestiona\newline la lógica, el procesamiento de datos y la comunicación con el servidor).}
-\itemglosario{}{}
-\itemglosario{}{}
+\itemglosario{Big Data}{Concepto que hace referencia a conjuntos de datos tan grandes y complejos que precisan de aplicaciones informáticas no tradicionales de procesamiento de datos para tratarlos adecuadamente.}
+\itemglosario{Blockchain}{Tecnología de registro distribuido que permite almacenar información de manera segura, transparente e inmutable mediante una cadena de bloques enlazados criptográficamente.}
+\itemglosario{Chatbot}{Programa informático diseñado para simular una conversación con usuarios humanos, especialmente a través de Internet, utilizando texto o voz.}
+\itemglosario{Embeddings}{Representaciones vectoriales de palabras o frases en un espacio numérico continuo, donde la cercanía entre vectores indica similitud semántica.}
+\itemglosario{Fine-Tuning}{Proceso de ajuste fino en el que un modelo preentrenado se somete a un entrenamiento adicional con un conjunto de datos específico para especializarlo en una tarea determinada.}
+\itemglosario{Focus Group}{Técnica de investigación cualitativa que reúne a un pequeño grupo de personas para discutir y analizar un tema, producto o servicio bajo la guía de un moderador.}
+\itemglosario{Framework}{Entorno de trabajo o marco conceptual que ofrece un conjunto estandarizado de conceptos, prácticas y criterios para enfocar un tipo de problemática particular.}
+\renewcommand{\glosariovacio}{false}
+\newglossaryentry{glos:Alucinacion}{name={Alucinación}, type=glosario, description={Fenómeno en inteligencia artificial donde un modelo generativo produce información que parece plausible pero es incorrecta, ilógica o no está basada en los datos de entrada.}}
+\newglossaryentry{glos:LLM}{name={LLM}, type=glosario, description={Modelo de inteligencia artificial generativa entrenado con vastas cantidades de datos textuales, capaz de entender, resumir, traducir y predecir nuevo contenido.}}
+\newglossaryentry{glos:RAG}{name={RAG}, type=glosario, description={Técnica que optimiza la salida de un LLM al permitirle consultar una base de conocimientos externa confiable antes de generar una respuesta.}}
+\itemglosario{Transformers}{Arquitectura de aprendizaje profundo que utiliza mecanismos de atención para procesar secuencias de datos, permitiendo modelar dependencias a largo plazo en el texto.}
+\itemglosario{Token}{Unidad básica de texto (puede ser una palabra, una parte de una palabra o un carácter) que un modelo de lenguaje procesa individualmente.}
 
 %=================================================================
 %                    Sección editable para anexos
