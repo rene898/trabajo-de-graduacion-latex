@@ -31,7 +31,7 @@
 % =============== NO MODIFICAR LOS COMANDOS ======================
 % ================================================================
 
-\newcommand{\titulo}{IMPLEMENTACIÓN DE PROTOTIPO PARA ``UCACHAT''} %Título del trabajo
+\newcommand{\titulo}{IMPLEMENTACIÓN DE PROTOTIPO PARA ``UCA Chat''} %Título del trabajo
 
 % 0. Informatica
 % 1. Civil
@@ -104,15 +104,15 @@ Este trabajo de graduación y el título que representa son fruto de su confianz
 % ================== NO MODIFICAR LOS COMANDOS ===================
 % ================================================================
 
-\newcommand{\resumen}{La comunidad estudiantil de la Universidad Centroamericana José Simeón Cañas (UCA) enfrenta dificultades para acceder de manera rápida y eficiente a la información institucional, debido a que esta se encuentra distribuida en múltiples plataformas y formatos. Esta situación genera pérdida de tiempo, confusión y, en algunos casos, desinformación al realizar consultas sobre procesos académicos, administrativos y servicios universitarios. Ante esta problemática, el presente Trabajo de Graduación tiene como objetivo la implementación de un prototipo de asistente conversacional universitario denominado “UCAchat”, orientado a centralizar y facilitar el acceso a la información institucional.
+\newcommand{\resumen}{La comunidad estudiantil de la Universidad Centroamericana José Simeón Cañas (UCA) enfrenta dificultades para acceder de manera rápida y eficiente a la información institucional, debido a que esta se encuentra distribuida en múltiples plataformas y formatos. Esta situación genera pérdida de tiempo, confusión y, en algunos casos, desinformación al realizar consultas sobre procesos académicos, administrativos y servicios universitarios. Ante esta problemática, el presente Trabajo de Graduación tiene como objetivo la implementación de un prototipo de asistente conversacional universitario denominado “UCA Chat”, orientado a centralizar y facilitar el acceso a la información institucional.
 
 En el desarrollo del trabajo, inicialmente se presenta una introducción donde se plantea el problema, se describen los antecedentes relacionados con el uso de chatbots en entornos educativos, así como los alcances, limitaciones y objetivos del proyecto. Esta sección permite contextualizar la necesidad de una herramienta tecnológica que apoye a los estudiantes, especialmente a los de nuevo ingreso, en la gestión de información universitaria.
 
 Posteriormente, se desarrolla el marco teórico, en el cual se abordan los conceptos fundamentales relacionados con la inteligencia artificial, el procesamiento de lenguaje natural, los chatbots y los modelos de lenguaje de gran escala (LLM). Asimismo, se analizan problemáticas asociadas a estos modelos, como las alucinaciones, y se estudia la arquitectura Retrieval-Augmented Generation (RAG) como una solución para mejorar la precisión y confiabilidad de las respuestas. También se incluyen temas como embeddings, bases de datos vectoriales, uso de GPUs, frameworks de despliegue local y consideraciones éticas relacionadas con la implementación de sistemas de inteligencia artificial en el ámbito universitario.
 
-En la sección metodológica se describe el enfoque utilizado para el desarrollo del prototipo UCAchat, el cual se estructura en tres fases principales: investigación y recopilación de datos, diseño y desarrollo del prototipo, y pruebas y evaluación. En esta parte se detalla el proceso de levantamiento de requerimientos mediante encuestas dirigidas a estudiantes, la recopilación y estructuración de documentos institucionales que conforman la base de conocimiento, la implementación del sistema RAG y el desarrollo de una interfaz web intuitiva para la interacción con los usuarios.
+En la sección metodológica se describe el enfoque utilizado para el desarrollo del prototipo UCA Chat, el cual se estructura en tres fases principales: investigación y recopilación de datos, diseño y desarrollo del prototipo, y pruebas y evaluación. En esta parte se detalla el proceso de levantamiento de requerimientos mediante encuestas dirigidas a estudiantes, la recopilación y estructuración de documentos institucionales que conforman la base de conocimiento, la implementación del sistema RAG y el desarrollo de una interfaz web intuitiva para la interacción con los usuarios.
 
-A continuación, se presenta el análisis e interpretación de los resultados obtenidos a partir de las encuestas aplicadas a estudiantes de la universidad. Estos resultados permiten conocer los hábitos de uso de herramientas de inteligencia artificial, el nivel de confianza en sus respuestas, los trámites universitarios que generan mayor dificultad y la percepción de los estudiantes respecto a la utilidad de un chatbot institucional. El análisis evidencia una alta aceptación del uso de UCAchat y resalta su potencial para mejorar la experiencia estudiantil y reducir el tiempo invertido en la búsqueda de información.
+A continuación, se presenta el análisis e interpretación de los resultados obtenidos a partir de las encuestas aplicadas a estudiantes de la universidad. Estos resultados permiten conocer los hábitos de uso de herramientas de inteligencia artificial, el nivel de confianza en sus respuestas, los trámites universitarios que generan mayor dificultad y la percepción de los estudiantes respecto a la utilidad de un chatbot institucional. El análisis evidencia una alta aceptación del uso de UCA Chat y resalta su potencial para mejorar la experiencia estudiantil y reducir el tiempo invertido en la búsqueda de información.
 
 Finalmente, el trabajo concluye con una sección de conclusiones y recomendaciones, donde se evalúa el cumplimiento de los objetivos planteados y se confirma la viabilidad de implementar un chatbot universitario basado en inteligencia artificial. Asimismo, se proponen recomendaciones orientadas a la mejora continua del sistema, su actualización periódica y su posible ampliación en futuras versiones, con el fin de fortalecer la comunicación institucional y el apoyo a la comunidad estudiantil.
 }
@@ -242,11 +242,11 @@ Una de las tareas fundamentales de la Inteligencia Artificial (IA) es la manipul
 
 El uso del lenguaje natural (LN) en la comunicación hombre-máquina presenta a la vez una ventaja y un obstáculo con respecto a otros medios de comunicación.
 
-\subsection{Ventaja de Procesamiento de Lenguaje Natural }
+\subsection{Ventaja del Procesamiento de Lenguaje Natural}
 (\cite{Vasquez2009PLN}) mencionan que, por un lado, es una ventaja, en la medida en que el locutor no tiene que esforzarse para aprender el medio de comunicación a diferencia de otros medios de interacción como lo son los lenguajes de comando o las interfaces gráficas. 
 
-\subsection{Desventaja de Procesamiento de Lenguaje Natura}
-Su uso también presenta limitaciones porque la computadora tiene una limitada comprensión del lenguaje. Por ejemplo, el usuario no puede hablar sobrentendidos, ni introducir nuevas palabras, ni construir sentidos derivados, tareas que se realizan espontánea mente cuando se utiliza el lenguaje natural. Realmente, lo que constituye en ventaja para la comunicación humana se convierte en problema a la hora de un tratamiento computacional, ya que implican conocimiento y procesos de razonamiento que aún no sabemos ni cómo caracterizarlos ni cómo formalizarlos (\cite{Vasquez2009PLN}).
+\subsection{Desventaja del Procesamiento de Lenguaje Natural}
+Su uso también presenta limitaciones porque la computadora tiene una limitada comprensión del lenguaje. Por ejemplo, el usuario no puede hablar sobrentendidos, ni introducir nuevas palabras, ni construir sentidos derivados, tareas que se realizan espontáneamente cuando se utiliza el lenguaje natural. Realmente, lo que constituye en ventaja para la comunicación humana se convierte en problema a la hora de un tratamiento computacional, ya que implican conocimiento y procesos de razonamiento que aún no sabemos ni cómo caracterizarlos ni cómo formalizarlos (\cite{Vasquez2009PLN}).
 
 %3.3
 \section{¿De dónde nace el chatbot?}
@@ -379,7 +379,7 @@ Reconocer estas limitaciones no disminuye el valor del proyecto, sino que enmarc
 
     \section{Metodología}
     
-    El desarrollo del prototipo ``UCAchat'' se llevará a cabo mediante una metodología estructurada en tres fases secuenciales, diseñadas para garantizar que el producto final responda a las necesidades reales de los usuarios y cumpla con los objetivos técnicos del proyecto.
+    El desarrollo del prototipo ``UCA Chat'' se llevará a cabo mediante una metodología estructurada en tres fases secuenciales, diseñadas para garantizar que el producto final responda a las necesidades reales de los usuarios y cumpla con los objetivos técnicos del proyecto.
     
     \subsection{Fase I: Investigación y recopilación de datos}
     
@@ -405,7 +405,7 @@ Reconocer estas limitaciones no disminuye el valor del proyecto, sino que enmarc
     La fase final consiste en validar el prototipo y recopilar retroalimentación para futuras mejoras.
     
     \begin{enumerate}
-        \item \textbf{Prueba piloto:} Se seleccionará un grupo representativo de estudiantes para que interactúen con el prototipo ``UCAchat'', en formato de focus group.
+        \item \textbf{Prueba piloto:} Se seleccionará un grupo representativo de estudiantes para que interactúen con el prototipo ``UCA Chat'', en formato de focus group.
         \item \textbf{Recopilación y análisis de retroalimentación:} Se recopilarán datos cuantitativos y cualitativos a través de observaciones y encuestas post-prueba.
         \item \textbf{Informe de resultados:} Se analizarán los datos para evaluar el desempeño del prototipo, identificar y realizar posibles mejoras.
     \end{enumerate}
@@ -415,7 +415,7 @@ Reconocer estas limitaciones no disminuye el valor del proyecto, sino que enmarc
     }
 
 \capitulo{Presentación, análisis e interpretación de resultados}{
-    La presentación, el análisis e interpretaciones de los resultados es crucial para conocer la importancia de la implementación del prototipo para UCAchat y por eso se realizó una encuesta a los estudiantes de la Universidad Centroamericana José Simeón Cañas de la Facultad de grado de Ingeniería y Arquitectura para conocer la opinión de los estudiantes y ver el nivel de aceptación que tendrá UCAchat, obteniendo los siguientes resultados. 
+    La presentación, el análisis e interpretaciones de los resultados es crucial para conocer la importancia de la implementación del prototipo para UCA Chat y por eso se realizó una encuesta a los estudiantes de la Universidad Centroamericana José Simeón Cañas de la Facultad de grado de Ingeniería y Arquitectura para conocer la opinión de los estudiantes y ver el nivel de aceptación que tendrá UCA Chat, obteniendo los siguientes resultados. 
     
     \section{Año de la carrera y la facultad de grado }
     Las primeras dos preguntas buscan identificar el año y la facultad que el estudiante se encuentra, dando como resultado lo siguiente:
@@ -455,7 +455,7 @@ Reconocer estas limitaciones no disminuye el valor del proyecto, sino que enmarc
             \label{fig:anio_facultad}
         \end{figure}
 
-        Como resultado de la encuesta realizada a 87 estudiantes, la mayor parte de los que respondieron la encuesta fueron estudiantes de primer año (35.63\%), todos pertenecientes a la Facultad de Ingeniería y Arquitectura (100\%). UCAChat estará especialmente orientado a apoyar a estudiantes de nuevo ingreso, quienes enfrentan mayor incertidumbre respecto a procesos institucionales clave como retiro de materias, diferidos, inscripción y ubicación de información académica, etc. Dado que estos estudiantes son quienes más necesitan orientación en su transición universitaria, la muestra resultante es coherente y adecuada para los fines de la investigación, garantizando que las conclusiones reflejen las necesidades de los estudiantes que más se beneficiaran con la implementación de UCAchat.
+        Como resultado de la encuesta realizada a 87 estudiantes, la mayor parte de los que respondieron la encuesta fueron estudiantes de primer año (35.63\%), todos pertenecientes a la Facultad de Ingeniería y Arquitectura (100\%). UCA Chat estará especialmente orientado a apoyar a estudiantes de nuevo ingreso, quienes enfrentan mayor incertidumbre respecto a procesos institucionales clave como retiro de materias, diferidos, inscripción y ubicación de información académica, etc. Dado que estos estudiantes son quienes más necesitan orientación en su transición universitaria, la muestra resultante es coherente y adecuada para los fines de la investigación, garantizando que las conclusiones reflejen las necesidades de los estudiantes que más se beneficiaran con la implementación de UCA Chat.
 
         \section{Uso de chatbot o inteligencia artificial y con qué frecuencia la utilizan }
         En esta parte se encuestó a varios estudiantes para conocer si han utilizado una inteligencia artificial o chatbot y también qué tanto la utilizan. Los resultados fueron los siguientes:
@@ -489,7 +489,7 @@ Reconocer estas limitaciones no disminuye el valor del proyecto, sino que enmarc
             \label{fig:uso_ia}
         \end{figure}
         
-Los resultados muestran que todos los encuestados han utilizado IA y que su uso es frecuente, principalmente para actividades académicas como obtener información, realizar investigaciones y apoyar tareas. Esto evidencia una alta madurez tecnológica en la población estudiantil. Aunque la confianza en la IA es moderada lo cual es razonable, ya que siempre es necesario verificar la información, no existe un rechazo hacia su uso. En conjunto, estos patrones confirman el potencial de UCAChat como asistente institucional, ya que los estudiantes están dispuestos a utilizar herramientas automatizadas siempre que ofrezcan información clara, precisa y verificable.
+Los resultados muestran que todos los encuestados han utilizado IA y que su uso es frecuente, principalmente para actividades académicas como obtener información, realizar investigaciones y apoyar tareas. Esto evidencia una alta madurez tecnológica en la población estudiantil. Aunque la confianza en la IA es moderada lo cual es razonable, ya que siempre es necesario verificar la información, no existe un rechazo hacia su uso. En conjunto, estos patrones confirman el potencial de UCA Chat como asistente institucional, ya que los estudiantes están dispuestos a utilizar herramientas automatizadas siempre que ofrezcan información clara, precisa y verificable.
 
         \begin{figure}[H]
             \centering
@@ -681,8 +681,8 @@ La universidad sí cuenta con un canal oficial, pero existe una brecha informati
 
         Estos resultados reflejan una necesidad de mejora en la accesibilidad y claridad de la información institucional, lo que respalda la pertinencia de implementar un chatbot universitario como una herramienta que simplifique la búsqueda de información, reduzca el esfuerzo requerido por los estudiantes y mejore su experiencia general.
 
-\section{Documentos que más se consultarían en UCAChat}
-La siguiente pregunta es con relación a cuáles documentos los estudiantes consultarian en el chatbot UCAchat, los resultados fueron los siguientes:
+\section{Documentos que más se consultarían en UCA Chat}
+La siguiente pregunta es con relación a cuáles documentos los estudiantes consultarian en el chatbot UCA Chat, los resultados fueron los siguientes:
 
 
 \begin{figure}[H]
@@ -727,9 +727,9 @@ La planificación de clases, la inscripción y carga académica, el cumplimiento
 Los documentos más solicitados corresponden a consultas frecuentes, lo que respalda la necesidad de un chatbot que centralice información dispersa o difícil de encontrar actualmente.
 
 
-\section{Frecuencia estimada de uso de UCAChat}
+\section{Frecuencia estimada de uso de UCA Chat}
 
-En esta sección se presentan los resultados obtenidos al consultar a los estudiantes sobre la frecuencia estimada de uso del chatbot universitario UCAchat, utilizando una escala numérica.
+En esta sección se presentan los resultados obtenidos al consultar a los estudiantes sobre la frecuencia estimada de uso del chatbot universitario UCA Chat, utilizando una escala numérica.
 
 \begin{table}[H]
     \centering
@@ -753,10 +753,10 @@ En esta sección se presentan los resultados obtenidos al consultar a los estudi
     \label{tab:uso_ucachat}
 \end{table}
 
-Los resultados indican que UCAChat tendría una alta aceptación y un uso frecuente por parte de los estudiantes. Esta predisposición positiva refuerza la viabilidad de la implementación de UCAChat, ya que los estudiantes no solo están abiertos a utilizarlo, sino que lo perciben como una herramienta con potencial real para apoyar sus actividades académicas y administrativas, siempre que ofrezca información confiable y de fácil acceso.
+Los resultados indican que UCA Chat tendría una alta aceptación y un uso frecuente por parte de los estudiantes. Esta predisposición positiva refuerza la viabilidad de la implementación de UCA Chat, ya que los estudiantes no solo están abiertos a utilizarlo, sino que lo perciben como una herramienta con potencial real para apoyar sus actividades académicas y administrativas, siempre que ofrezca información confiable y de fácil acceso.
 
 \section{Características de confianza para el chatbot universitario}
-Para garantizar la confianza en el uso de UCAChat, se consultó a los estudiantes sobre las características que consideran indispensables. Los resultados se detallan a continuación:
+Para garantizar la confianza en el uso de UCA Chat, se consultó a los estudiantes sobre las características que consideran indispensables. Los resultados se detallan a continuación:
 
 \begin{figure}[H]
     \centering
@@ -792,7 +792,7 @@ Para garantizar la confianza en el uso de UCAChat, se consultó a los estudiante
 
 Los resultados evidencian que la actualización constante de la información es el factor más determinante para generar confianza en el chatbot universitario, al ser seleccionada por la gran mayoría de los encuestados. Esto refleja una preocupación clara por la vigencia y exactitud de los datos, especialmente en un entorno universitario donde los procesos, fechas y normativas pueden cambiar con frecuencia.
 
-\section{Información que los estudiantes prefieren que UCAChat les proporcione}
+\section{Información que los estudiantes prefieren que UCA Chat les proporcione}
 La siguiente pregunta fue que tanta información les gustaría a los estudiantes ver en el chatbot de la universidad, estos fueron los resultados:
 
 \begin{figure}[H]
@@ -967,7 +967,7 @@ La siguiente pregunta fue sobre qué tipo de lenguaje prefieren los estudiantes 
     \label{fig:preferencia_lenguaje}
 \end{figure}
 
-La mayoría de los estudiantes espera que el chatbot use un estilo amigable, cercano y claro, que facilite la comprensión y agilice las consultas. para que sea más comprensible para cualquier persona que ocupe el UCAChat.
+La mayoría de los estudiantes espera que el chatbot use un estilo amigable, cercano y claro, que facilite la comprensión y agilice las consultas. para que sea más comprensible para cualquier persona que ocupe el UCA Chat.
 
 \section{Preferencia de los estudiantes sobre la personalidad (nombre o avatar) que el chatbot maneje}
 La siguiente pregunta fue sobre si los estudiantes prefieren que el chatbot tenga una personalidad definida (nombre o avatar), los resultados se muestran en la Figura \ref{fig:preferencia_personalidad}.
@@ -1004,7 +1004,7 @@ La siguiente pregunta fue sobre si los estudiantes prefieren que el chatbot teng
             \addplot[fill=yellow!90!orange, draw=none] coordinates {(Igual,38)};
         \end{axis}
     \end{tikzpicture}
-    \caption{Preferencia en la personalidad de UcaChat}
+    \caption{Preferencia en la personalidad de UCA Chat}
     \label{fig:preferencia_personalidad}
 \end{figure}
 
@@ -1050,7 +1050,7 @@ La siguiente pregunta fue para conocer qué tan cómodos se sienten los estudian
     \label{fig:adaptacion_tecnologias}
 \end{figure}
 
-Los resultados muestran que la población encuestada posee un alto nivel de familiaridad y adaptación tecnológica, lo cual facilita la adopción de nuevas plataformas institucionales, incluyendo un a UCAChat.
+Los resultados muestran que la población encuestada posee un alto nivel de familiaridad y adaptación tecnológica, lo cual facilita la adopción de nuevas plataformas institucionales, incluyendo un a UCA Chat.
 
 \section{Consideración sobre el uso de la Inteligencia Artificial en las universidades puede mejorar la experiencia estudiantil}
 La siguiente pregunta fue para conocer la opinión de los estudiantes sobre si el uso de la IA en las universidades puede mejorar su experiencia, los resultados se muestran en la Figura \ref{fig:ia_mejora_experiencia}.
@@ -1095,11 +1095,11 @@ La siguiente pregunta fue para conocer la opinión de los estudiantes sobre si e
 \end{figure}
 
 \section{Percepción sobre la reducción de tiempo en trámites}
-En esta pregunta se consultó a los estudiantes si consideran que la implementación de UCAchat podría reducir el tiempo que invierten en realizar trámites, utilizando una escala numérica.
+En esta pregunta se consultó a los estudiantes si consideran que la implementación de UCA Chat podría reducir el tiempo que invierten en realizar trámites, utilizando una escala numérica.
 
 \begin{table}[H]
     \centering
-    \caption{Frecuencia estimada de uso de UCAchat}
+    \caption{Frecuencia estimada de uso de UCA Chat}
     \begin{tabular}{|l|c|c|}
         \hline
         \textbf{Tipo} & \textbf{Categoría} & \textbf{Frecuencia} \\ \hline
@@ -1138,16 +1138,16 @@ La mayoría considera que un chatbot universitario tendría un impacto significa
 
 \newenvironment{conclusiones}{
     \begin{listaenumerada}
-        \item La implementación del prototipo UCAchat, basado en una arquitectura de Retrieval-Augmented Generation (RAG), demostró ser una solución viable y pertinente para centralizar la información académica y administrativa de la Universidad Centroamericana José Simeón Cañas. El uso de documentos institucionales como base de conocimiento permitió ofrecer respuestas más precisas, verificables y alineadas con la realidad universitaria, mitigando el riesgo de desinformación y alucinaciones propias de los modelos de lenguaje tradicionales.
+        \item La implementación del prototipo UCA Chat, basado en una arquitectura de Retrieval-Augmented Generation (RAG), demostró ser una solución viable y pertinente para centralizar la información académica y administrativa de la Universidad Centroamericana José Simeón Cañas. El uso de documentos institucionales como base de conocimiento permitió ofrecer respuestas más precisas, verificables y alineadas con la realidad universitaria, mitigando el riesgo de desinformación y alucinaciones propias de los modelos de lenguaje tradicionales.
         \item Los resultados obtenidos a partir de la encuesta aplicada a los estudiantes evidencian una alta aceptación y disposición al uso de herramientas basadas en inteligencia artificial, especialmente entre estudiantes de nuevo ingreso. Se identificó que los principales problemas actuales radican en la dispersión de la información y la dificultad para realizar trámites académicos, lo cual valida la necesidad de un asistente conversacional institucional que reduzca tiempos, facilite la toma de decisiones y mejore la experiencia estudiantil.
-        \item El desarrollo del prototipo permitió comprobar que un chatbot universitario no solo puede funcionar como un canal informativo, sino también como un apoyo estratégico en la comunicación institucional, siempre que se acompañe de una adecuada gestión de la base de conocimiento y consideraciones éticas claras. En este sentido, UCAchat se posiciona como una herramienta complementaria al personal administrativo, capaz de fortalecer la autonomía del estudiante sin reemplazar la atención humana en procesos complejos.
+        \item El desarrollo del prototipo permitió comprobar que un chatbot universitario no solo puede funcionar como un canal informativo, sino también como un apoyo estratégico en la comunicación institucional, siempre que se acompañe de una adecuada gestión de la base de conocimiento y consideraciones éticas claras. En este sentido, UCA Chat se posiciona como una herramienta complementaria al personal administrativo, capaz de fortalecer la autonomía del estudiante sin reemplazar la atención humana en procesos complejos.
     \end{listaenumerada}
 }{}
 
 \newenvironment{recomendaciones}{
     \begin{lista}
-        \item Es esencial mantener al día el chatbot universitario conocido como UCAchat. Esto se debe a que en futuras versiones, el estudiante podría requerir la búsqueda de información reciente de la universidad o de un documento específico, lo cual podría no estar actualizado. Por lo tanto, será necesario mantener su actualización con cierta periodicidad.
-        \item Es necesario designar un equipo o un responsable institucional encargado de la administración de la base de conocimiento de UCAchat, con el fin de verificar la veracidad, coherencia y vigencia de la información divulgada. Esto permitirá la disminución del riesgo de desinformación y el incremento de la confianza de los estudiantes en las respuestas proporcionadas por el chatbot de la universidad.
+        \item Es esencial mantener al día el chatbot universitario conocido como UCA Chat. Esto se debe a que en futuras versiones, el estudiante podría requerir la búsqueda de información reciente de la universidad o de un documento específico, lo cual podría no estar actualizado. Por lo tanto, será necesario mantener su actualización con cierta periodicidad.
+        \item Es necesario designar un equipo o un responsable institucional encargado de la administración de la base de conocimiento de UCA Chat, con el fin de verificar la veracidad, coherencia y vigencia de la información divulgada. Esto permitirá la disminución del riesgo de desinformación y el incremento de la confianza de los estudiantes en las respuestas proporcionadas por el chatbot de la universidad.
     \end{lista}
 }{}
 
@@ -1180,7 +1180,7 @@ La mayoría considera que un chatbot universitario tendría un impacto significa
 % ================================================================
 
 \newcommand{\anexos}{
-    \anexo{Encuesta: Análisis de interés estudiantil UCAchat}{
+    \anexo{Encuesta: Análisis de interés estudiantil UCA Chat}{
         \noindent Somos estudiantes egresados de la carrera Ingeniería Informática de la Universidad Centroamericana José Simeón Cañas y estamos realizando una investigación como parte de nuestro trabajo de graduación, por lo cual necesitamos de su colaboración completando el formulario que a continuación se le presenta.
 
         \vspace{5pt}
