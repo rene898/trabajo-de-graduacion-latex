@@ -5,6 +5,19 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 
+% Comando para las escalas de 0 a 10
+\newcommand{\escalaDiez}[2]{
+    \begin{center}
+    \resizebox{0.85\textwidth}{!}{
+    \begin{tabular}{*{11}{c}}
+    0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+    $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ \\
+    \multicolumn{5}{l}{\scriptsize #1} & & \multicolumn{5}{r}{\scriptsize #2}
+    \end{tabular}
+    }
+    \end{center}
+}
+
 \definecolor{myorange}{RGB}{255, 170, 50}
 \definecolor{mylightorange}{RGB}{255, 190, 90}
 \definecolor{myblue}{RGB}{65, 105, 225}
@@ -77,7 +90,11 @@
 
 \newcommand{\dedicatoriaautorB}{}% Dedicatoria del autor B, ingresar solo si se ingreso "false" en el comando "porcadaestudiante".
 
-\newcommand{\dedicatoriaautorC}{}% Dedicatoria del autor C, ingresar solo si se ingreso "false" en el comando "porcadaestudiante".
+\newcommand{\dedicatoriaautorC}{A mis padres, Carlos Alfredo Vásquez Carbajal y Silvia Mercedes Escamilla de Vásquez, mis pilares fundamentales, quienes con su amor, sacrificio y valores forjaron el camino que hoy me permite alcanzar esta meta. Aunque ya no están físicamente conmigo para compartir este logro, su ejemplo y enseñanzas permanecen presentes y continúan guiando mi vida.
+
+De manera especial, a mi madre, Silvia Mercedes, ejemplo de fortaleza, fe y perseverancia. Sus palabras de aliento, dedicación y constante apoyo fueron una fuente de motivación para superar cada desafío. Su legado de amor y valentía me impulsa a esforzarme cada día por ser mejor.
+
+Este trabajo de graduación y el título que representa son fruto de su confianza, cuidados y enseñanzas. Todo el esfuerzo dedicado a mi formación académica y profesional está orientado a honrar su memoria y a preservar los valores que me inculcaron.}% Dedicatoria del autor C, ingresar solo si se ingreso "false" en el comando "porcadaestudiante".
 
 \newcommand{\dedicatoriaautorD}{}% Dedicatoria del autor D, ingresar solo si se ingreso "false" en el comando "porcadaestudiante".
 
@@ -87,9 +104,17 @@
 % ================== NO MODIFICAR LOS COMANDOS ===================
 % ================================================================
 
-\newcommand{\resumen}{La comunidad estudiantil de la Universidad Centroamericana José Simeón Cañas (UCA) enfrenta el desafío de acceder a información institucional, la cual se encuentra dispersa en múltiples fuentes y formatos. Esta descentralización genera ineficiencias, pérdida de tiempo y desinformación al realizar consultas sobre procesos académicos, administrativos y servicios universitarios. El presente proyecto aborda esta problemática mediante la implementación de un prototipo de asistente conversacional denominado ``UCAchat''.
+\newcommand{\resumen}{La comunidad estudiantil de la Universidad Centroamericana José Simeón Cañas (UCA) enfrenta dificultades para acceder de manera rápida y eficiente a la información institucional, debido a que esta se encuentra distribuida en múltiples plataformas y formatos. Esta situación genera pérdida de tiempo, confusión y, en algunos casos, desinformación al realizar consultas sobre procesos académicos, administrativos y servicios universitarios. Ante esta problemática, el presente Trabajo de Graduación tiene como objetivo la implementación de un prototipo de asistente conversacional universitario denominado “UCAchat”, orientado a centralizar y facilitar el acceso a la información institucional.
 
-La solución se basa en una arquitectura de Retrieval-Augmented Generation (RAG), que potencia un Large Language Model (LLM) con una base de conocimiento específica, construida a partir de documentos públicos de la universidad. La metodología propuesta comprende tres fases: una investigación inicial para recopilar documentos y determinar las necesidades de los estudiantes a través de encuestas; el diseño y desarrollo del prototipo RAG y su interfaz web; y una fase final de pruebas y evaluación con usuarios para medir su eficacia y pertinencia. Se espera que el prototipo demuestre la viabilidad de centralizar la información institucional y mejorar significativamente la experiencia estudiantil.
+En el desarrollo del trabajo, inicialmente se presenta una introducción donde se plantea el problema, se describen los antecedentes relacionados con el uso de chatbots en entornos educativos, así como los alcances, limitaciones y objetivos del proyecto. Esta sección permite contextualizar la necesidad de una herramienta tecnológica que apoye a los estudiantes, especialmente a los de nuevo ingreso, en la gestión de información universitaria.
+
+Posteriormente, se desarrolla el marco teórico, en el cual se abordan los conceptos fundamentales relacionados con la inteligencia artificial, el procesamiento de lenguaje natural, los chatbots y los modelos de lenguaje de gran escala (LLM). Asimismo, se analizan problemáticas asociadas a estos modelos, como las alucinaciones, y se estudia la arquitectura Retrieval-Augmented Generation (RAG) como una solución para mejorar la precisión y confiabilidad de las respuestas. También se incluyen temas como embeddings, bases de datos vectoriales, uso de GPUs, frameworks de despliegue local y consideraciones éticas relacionadas con la implementación de sistemas de inteligencia artificial en el ámbito universitario.
+
+En la sección metodológica se describe el enfoque utilizado para el desarrollo del prototipo UCAchat, el cual se estructura en tres fases principales: investigación y recopilación de datos, diseño y desarrollo del prototipo, y pruebas y evaluación. En esta parte se detalla el proceso de levantamiento de requerimientos mediante encuestas dirigidas a estudiantes, la recopilación y estructuración de documentos institucionales que conforman la base de conocimiento, la implementación del sistema RAG y el desarrollo de una interfaz web intuitiva para la interacción con los usuarios.
+
+A continuación, se presenta el análisis e interpretación de los resultados obtenidos a partir de las encuestas aplicadas a estudiantes de la universidad. Estos resultados permiten conocer los hábitos de uso de herramientas de inteligencia artificial, el nivel de confianza en sus respuestas, los trámites universitarios que generan mayor dificultad y la percepción de los estudiantes respecto a la utilidad de un chatbot institucional. El análisis evidencia una alta aceptación del uso de UCAchat y resalta su potencial para mejorar la experiencia estudiantil y reducir el tiempo invertido en la búsqueda de información.
+
+Finalmente, el trabajo concluye con una sección de conclusiones y recomendaciones, donde se evalúa el cumplimiento de los objetivos planteados y se confirma la viabilidad de implementar un chatbot universitario basado en inteligencia artificial. Asimismo, se proponen recomendaciones orientadas a la mejora continua del sistema, su actualización periódica y su posible ampliación en futuras versiones, con el fin de fortalecer la comunicación institucional y el apoyo a la comunidad estudiantil.
 }
 
 %=================================================================
@@ -197,15 +222,7 @@ La aplicación estará limitada a contestar preguntas relacionadas al contexto d
 % ================================================================
 
 \newcommand{\capitulos}{
-    \capitulo{Estuctura de los capítulos}{
-    Los capítulos del Trabajo de Graduación con el tema de Implementación de prototipo para UCAchat están estructurados de la siguiente manera:
 
-    \begin{listaenumerada}
-        \item Marco teórico
-        \item Metodología
-        \item Presentación, análisis e interpretación de resultados
-    \end{listaenumerada}
-    }
     \capitulo{Marco teórico}{
 
 
@@ -393,78 +410,12 @@ Reconocer estas limitaciones no disminuye el valor del proyecto, sino que enmarc
         \item \textbf{Informe de resultados:} Se analizarán los datos para evaluar el desempeño del prototipo, identificar y realizar posibles mejoras.
     \end{enumerate}
 
-    \begin{figure}[H]
-    \centering
-    \noindent
-    \colorbox{titleblue}{%
-      \parbox[c][1cm][c]{\textwidth}{%
-        \centering \bfseries \Large \textcolor{white}{Cronograma de actividades}
-      }%
-    }
-    \vspace{0.7cm}
-    
-    \resizebox{\textwidth}{!}{
-    \begin{ganttchart}[
-        expand chart=\textwidth,
-        hgrid,
-        vgrid,
-        y unit chart=0.7cm,
-        y unit title=0.8cm,
-        canvas/.append style={draw=none},
-        bar/.append style={fill=myblue, draw=none, rounded corners=3pt},
-        bar height=0.5,
-        bar label font=\small\sffamily,
-        bar label node/.append style={
-            text width=5cm,
-            align=right
-        },
-        title/.style={fill=myorange, draw=none, text=white},
-        title label font=\bfseries\footnotesize\color{white},
-        include title in canvas=false
-    ]{1}{24}
-    
-        \gantttitle{Agosto}{4}
-        \gantttitle{Septiembre}{4}
-        \gantttitle{Octubre}{4}
-        \gantttitle{Noviembre}{4}
-        \gantttitle{Diciembre}{4}
-        \gantttitle{Enero}{4} \\
-        
-        \gantttitlelist[
-            title/.style={fill=mylightorange, draw=none, text=white},
-            title label font=\scriptsize\color{white}
-        ]{1,2,3,4, 1,2,3,4, 1,2,3,4, 1,2,3,4, 1,2,3,4, 1,2,3,4}{1} \\
-    
-        \node[fill=headergreen, 
-              draw=none,
-              minimum width=6cm,
-              minimum height=1.6cm,
-              anchor=north east,
-              font=\bfseries\small\color{black!80},
-              xshift=0cm, 
-              yshift=0cm] 
-              at (current bounding box.north west)
-              {Actividades};
-    
-        \ganttbar{Levantamiento de Necesidades}{7}{8} \\
-        \ganttbar[bar/.append style={fill=mygreen}]{Recopilación Documental}{9}{11} \\
-        \ganttbar{Construcción Base de Conocimiento}{13}{16} \\
-        \ganttbar[bar/.append style={fill=mygreen}]{Implementación del Sistema RAG}{16}{20} \\
-        \ganttbar{Desarrollo de la Interfaz (UI)}{21}{22} \\
-        \ganttbar[bar/.append style={fill=mygreen}]{Prueba Piloto}{23}{23} \\
-        \ganttbar{Análisis de Retroalimentación}{23}{23} \\ 
-        \ganttbar[bar/.append style={fill=mygreen}]{Informe de Resultados}{24}{24}
-    
-    \end{ganttchart}
-    }
-    \caption{Cronograma de actividades del proyecto.}
-    \label{fig:cronograma_ucachat}
-    \end{figure}
+
 
     }
 
 \capitulo{Presentación, análisis e interpretación de resultados}{
-    La presentación, el análisis e interpretaciones de los resultados es crucial para conocer la importancia de la implementación del prototipo para UCAchat y por eso se realizó una encuesta a los estudiantes de la Universidad Centroamericana José Simeón Cañas de la facultad de grado de Ingeniería y Arquitectura para conocer la opinión de los estudiantes y ver el nivel de aceptación que tendrá UCAchat, obteniendo los siguientes resultados: 
+    La presentación, el análisis e interpretaciones de los resultados es crucial para conocer la importancia de la implementación del prototipo para UCAchat y por eso se realizó una encuesta a los estudiantes de la Universidad Centroamericana José Simeón Cañas de la Facultad de grado de Ingeniería y Arquitectura para conocer la opinión de los estudiantes y ver el nivel de aceptación que tendrá UCAchat, obteniendo los siguientes resultados. 
     
     \section{Año de la carrera y la facultad de grado }
     Las primeras dos preguntas buscan identificar el año y la facultad que el estudiante se encuentra, dando como resultado lo siguiente:
@@ -500,14 +451,14 @@ Reconocer estas limitaciones no disminuye el valor del proyecto, sino que enmarc
                     \node [fill=yellow!90!orange, label=right:Cuarto] {}; \& \node [fill=blue!60, label=right:Quinto] {}; \& \\
                 };
             \end{tikzpicture}
-            \caption{Grafico eAño de carrera y Facultad }
+            \caption{Año de carrera y Facultad}
             \label{fig:anio_facultad}
         \end{figure}
 
         Como resultado de la encuesta realizada a 87 estudiantes, la mayor parte de los que respondieron la encuesta fueron estudiantes de primer año (35.63\%), todos pertenecientes a la Facultad de Ingeniería y Arquitectura (100\%). UCAChat estará especialmente orientado a apoyar a estudiantes de nuevo ingreso, quienes enfrentan mayor incertidumbre respecto a procesos institucionales clave como retiro de materias, diferidos, inscripción y ubicación de información académica, etc. Dado que estos estudiantes son quienes más necesitan orientación en su transición universitaria, la muestra resultante es coherente y adecuada para los fines de la investigación, garantizando que las conclusiones reflejen las necesidades de los estudiantes que más se beneficiaran con la implementación de UCAchat.
 
         \section{Uso de chatbot o inteligencia artificial y con qué frecuencia la utilizan }
-        En esta parte se encuesto a varios estudiantes para conocer si han utilizado una inteligencia artificial o chatbot y tambien que tanto la utilizan. Los resultados fueron los siguientes:
+        En esta parte se encuestó a varios estudiantes para conocer si han utilizado una inteligencia artificial o chatbot y también qué tanto la utilizan. Los resultados fueron los siguientes:
         \begin{figure}[H]
             \centering
             \begin{tikzpicture}
@@ -538,7 +489,7 @@ Reconocer estas limitaciones no disminuye el valor del proyecto, sino que enmarc
             \label{fig:uso_ia}
         \end{figure}
         
-Los resultados muestran que todos los encuestados han utilizado IA y que su uso es frecuente, principalmente para actividades académicas como obtener información, realizar investigaciones y apoyar tareas. Esto evidencia una alta madurez tecnológica en la población estudiantil. Aunque la confianza en la IA es moderada lo cual es razonable, ya que siempre es necesario verificar la información no existe un rechazo hacia su uso. En conjunto, estos patrones confirman el potencial de UCAChat como asistente institucional, ya que los estudiantes están dispuestos a utilizar herramientas automatizadas siempre que ofrezcan información clara, precisa y verificable.
+Los resultados muestran que todos los encuestados han utilizado IA y que su uso es frecuente, principalmente para actividades académicas como obtener información, realizar investigaciones y apoyar tareas. Esto evidencia una alta madurez tecnológica en la población estudiantil. Aunque la confianza en la IA es moderada lo cual es razonable, ya que siempre es necesario verificar la información, no existe un rechazo hacia su uso. En conjunto, estos patrones confirman el potencial de UCAChat como asistente institucional, ya que los estudiantes están dispuestos a utilizar herramientas automatizadas siempre que ofrezcan información clara, precisa y verificable.
 
         \begin{figure}[H]
             \centering
@@ -585,7 +536,7 @@ Los resultados muestran que la IA se utiliza principalmente con fines académico
 
 \section{Confianza en la respuesta de la Inteligencia Artificial}
 
-En esta se les preguntó a los estudiantes en que tanto confían en la respuesta que les otorga la inteligencia artificial y también en que ámbito la utilizan, estos fueron los resultados: 
+En esta se les preguntó a los estudiantes en qué tanto confían en la respuesta que les otorga la inteligencia artificial y también en que ámbito la utilizan, estos fueron los resultados: 
 
 \begin{figure}[H]
     \centering
@@ -630,9 +581,9 @@ En esta se les preguntó a los estudiantes en que tanto confían en la respuesta
 
 Los resultados muestran que la confianza se sitúa en niveles medio-altos sin llegar a ser absoluta, lo que refleja un uso responsable en el que los estudiantes verifican la información obtenida.
 
-\section{Tramites que les ha dificultado más a los estudiantes de la universidad}
+\section{Trámites que les ha dificultado más a los estudiantes de la universidad}
 
-Una de las preguntas que se realizo fue con respecto cuales son los tramites que para los estudiantes se les dificulta elaborar. Los resultados obtenidos fueron los siguientes: 
+Una de las preguntas que se realizó fue con respecto cuales son los tramites que para los estudiantes se les dificulta elaborar. Los resultados obtenidos fueron los siguientes: 
 
 \begin{figure}[H]
     \centering
@@ -664,8 +615,8 @@ Una de las preguntas que se realizo fue con respecto cuales son los tramites que
 
 En esta pregunta lo que se puede interpretar es la mayor dificultad a procesos asociados a la carga académica (inscripciones y laboratorios). Esto indica que los estudiantes encuentran obstáculos reiterados al momento de gestionar su matrícula. Los trámites relacionados con modificaciones posteriores (retiros, diferidos) también generan problemas, aunque en menor medida.
 
-\section{Donde suelen los estudiantes buscar la información de la universidad}
-La siguiente pregunta que se realizo fue en donde suelen los estudiantes buscar la información de la universidad y los resultados fueron los siguientes:
+\section{Dónde suelen los estudiantes buscar la información de la universidad}
+La siguiente pregunta que se realizó fue en donde suelen los estudiantes buscar la información de la universidad y los resultados fueron los siguientes:
 
 \begin{figure}[H]
     \centering
@@ -804,7 +755,7 @@ En esta sección se presentan los resultados obtenidos al consultar a los estudi
 
 Los resultados indican que UCAChat tendría una alta aceptación y un uso frecuente por parte de los estudiantes. Esta predisposición positiva refuerza la viabilidad de la implementación de UCAChat, ya que los estudiantes no solo están abiertos a utilizarlo, sino que lo perciben como una herramienta con potencial real para apoyar sus actividades académicas y administrativas, siempre que ofrezca información confiable y de fácil acceso.
 
-\section{Características de confianza para el chatbot universitar}
+\section{Características de confianza para el chatbot universitario}
 Para garantizar la confianza en el uso de UCAChat, se consultó a los estudiantes sobre las características que consideran indispensables. Los resultados se detallan a continuación:
 
 \begin{figure}[H]
@@ -875,7 +826,7 @@ La siguiente pregunta fue que tanta información les gustaría a los estudiantes
     \label{fig:info_adicional_chatbot}
 \end{figure}
 
-Los resultados muestran Los resultados muestran que los estudiantes desean que el chatbot no solo brinde información académica, sino también contenido que les permita estar más conectados con la vida universitaria y resolver necesidades prácticas.
+Los resultados muestran que los estudiantes desean que el chatbot no solo brinde información académica, sino también contenido que les permita estar más conectados con la vida universitaria y resolver necesidades prácticas.
 
 En conjunto, los resultados evidencian que los estudiantes buscan un chatbot integral, capaz de centralizar información académica, administrativa, de servicios y de vida universitaria, con un énfasis particular en herramientas que les ayuden a vincularse con oportunidades profesionales.
 
@@ -1176,141 +1127,7 @@ La mayoría considera que un chatbot universitario tendría un impacto significa
 
 
         }
-    \capitulo{Formato de los trabajos}{
-    A continuación, se muestran las características principales del formato de trabajos de graduación creado por la facultad de ingeniería y arquitectura de la UCA.
-    
-    \begin{lista}
-        \item \textbf{Partes del documento:}
-        \begin{lista}
-            \item Primera portada.
-            \item Segunda portada.
-            \item Agradecimientos (opcional).
-            \item Dedicatorias (opcional).
-            \item Resumen.
-            \item Índice.
-            \item Índice de figuras.
-            \item Índice de tablas.
-            \item Siglas.
-            \item Abreviaturas.
-            \item Nomenclatura.
-            \item Capítulos.
-            \item Glosario (opcional).
-            \item Referencias.
-            \item Anexos.
-        \end{lista}
 
-        \item \textbf{Formato general:}
-        \begin{lista}
-            \item Pagina tamaño carta.
-            \item Margen de 2.5cm en todos lados.
-            \item Borde de encuadernación de 1cm.
-            \item Fuente Times New Roman 11pt.
-            \item Interlineado 1.5pt.
-            \item Espacio extra entre párrafos 0.
-            \item Línea vacía entre párrafos.
-            \item Todas las secciones deben comenzar en página impar.
-            \item En todas las secciones que llevan título, el titulo se coloca al inicio de la página, en negrita, en mayúscula y centrado horizontalmente.
-            \item Debe haber separación de una línea vacía entre el título y el texto.
-        \end{lista}
-
-        \item \textbf{Portadas:}
-        \begin{lista}
-            \item Texto centrado horizontalmente.
-            \item Espacio igual entre los párrafos para que el texto ocupe todo el espacio disponible.
-            \item Texto en mayúscula.
-            \item Fuente tamaño 14pt.
-            \item Logo de la primera portada 2.5cm de alto.
-            \item En la primera portada los nombres de los integrantes van ordenados en orden alfabético basados en el primer apellido.
-    \end{lista}
-
-    \item \textbf{Agradecimientos:}
-    \begin{lista}
-        \item Extensión máxima una página.
-    \end{lista}
-
-    \item \textbf{Dedicatoria:}
-    \begin{lista}
-        \item Una por cada integrante.
-        \item Extensión máxima una página.
-        \item Debe llevar el nombre correspondiente del integrante al final de la página y alineado al lado derecho.
-    \end{lista}
-
-    \item \textbf{Resumen:}
-    \begin{lista}
-        \item Extensión de una a tres páginas.
-    \end{lista}
-
-    \item \textbf{Índice:}
-    \begin{lista}
-        \item El espacio horizontal entre el nombre de las secciones y el número de página debe estar lleno de puntos.
-        \item Se permite hasta tres niveles de título.
-        \item Los títulos de las secciones principales van en mayúscula.
-        \item Al final se deben colocarlos anexos.
-    \end{lista}
-
-    \item \textbf{Índice de figuras e índice de tablas:}
-    \begin{lista}
-        \item Cada entrada del índice de figuras debe iniciar con la palabra “Figura” seguido del número de capitulo y el número correlativo de la figura.
-        \item Cada entrada del índice de tablas debe iniciar con la palabra “Tabla” seguido del número de capitulo y el número correlativo de la tabla.
-    \end{lista}
-
-    \item\textbf{Siglas, abreviaturas y nomenclatura:}
-    \begin{lista}
-        \item Van separados en dos columnas, en la columna izquierda se coloca la sigla o palabra seguido de dos puntos y en la columna derecha se coloca la definición.
-    \end{lista}
-
-    \item\textbf{Figuras:}
-    \begin{lista}
-        \item Las figuras incluyen gráficos, diagramas, fotos, etc.
-        \item El epígrafe va en la parte inferior centrado horizontalmente.
-        \item Al inicio va la palabra “Figura” seguido del número de capitulo y número correlativo.
-        \item En el epígrafe continuo a la descripción de la figura va la fuente.
-        \item La fuente sigue el siguiente formato, “Fuente: [apellido autor, año]”.
-        \item Si la figura es de elaboración propia se coloca, “Fuente: [Elaboración propia]”.
-        \item Si la figura ha sido adaptada de alguna parte se coloca, “Adaptado de: [apellido autor, año]”.
-        \item Las figuras se pueden colocar con orientación horizontal, en ese caso siempre de izquierda a derecha.
-        \item Si la figura tiene orientación horizontal, el epígrafe se coloca en el lado derecho de la página.
-    \end{lista}
-
-    \item\textbf{Tabla:}
-    \begin{lista}
-        \item El epígrafe va en la parte superior, centrado horizontalmente.
-        \item Al inicio va la palabra “Tabla” seguido del número de capitulo y número correlativo.
-        \item La fuente se coloca en la parte inferior, centrada horizontalmente.
-        \item La fuente sigue el siguiente formato, “Fuente: [apellido autor, año]”.
-        \item Si la tabla es de elaboración propia se coloca, “Fuente: [Elaboración propia]”.
-        \item Si la figura ha sido adaptada de alguna parte se coloca, “Adaptado de: [apellido autor, año]”.
-        \item Las tablas se pueden colocar con orientación horizontal, en ese caso siempre de izquierda a derecha.
-        \item Si la tabla tiene orientación horizontal, el epígrafe se coloca en el lado izquierdo de la página.
-    \end{lista}
-
-    \item\textbf{Ecuaciones:}
-    \begin{lista}
-        \item Las ecuaciones deben estar numeradas de la siguiente forma “(Ec.1.1)”.
-    \end{lista}
-
-    \item \textbf{Glosario:}
-    \begin{lista}
-        \item Tiene el mismo formato que las siglas, abreviaturas y nomenclatura.
-    \end{lista}
-
-    \item\textbf{Referencia:}
-    \begin{lista}
-        \item El formato de la referencia es en formato APA.
-        \item No se coloca sangría en las líneas de cada una de las referencias.
-        \item Las referencias van separadas horizontalmente por una línea vacía.
-    \end{lista}
-
-    \item\textbf{Portada anexos:}
-    \begin{lista}
-        \item Los anexos se enumeran utilizando letras.
-        \item La portada de los anexos lleva dos partes, lleva la palabra “ANEXO” en mayúscula seguido de la letra correspondiente, el tamaño de fuente de esta parte es 20pt.
-        \item El título del anexo en mayúscula, el tamaño de fuente de esta parte es 16pt.
-        \item Todo el texto va centrado vertical y horizontalmente.
-    \end{lista}
-
-    \end{lista}
-    }
 }
 
 %=================================================================
@@ -1329,7 +1146,7 @@ La mayoría considera que un chatbot universitario tendría un impacto significa
 
 \newenvironment{recomendaciones}{
     \begin{lista}
-        \item Es esencial mantener al día el chatbot universitario conocido como UCAchat. Esto se debe a que en futuras versiones, el estudiante podría requerir la búsqueda de información reciente de la universidad o de un documento específico, lo cual podría no estar actualizado. Por lo tanto, será necesario mantener su actualización anualmente.
+        \item Es esencial mantener al día el chatbot universitario conocido como UCAchat. Esto se debe a que en futuras versiones, el estudiante podría requerir la búsqueda de información reciente de la universidad o de un documento específico, lo cual podría no estar actualizado. Por lo tanto, será necesario mantener su actualización con cierta periodicidad.
         \item Es necesario designar un equipo o un responsable institucional encargado de la administración de la base de conocimiento de UCAchat, con el fin de verificar la veracidad, coherencia y vigencia de la información divulgada. Esto permitirá la disminución del riesgo de desinformación y el incremento de la confianza de los estudiantes en las respuestas proporcionadas por el chatbot de la universidad.
     \end{lista}
 }{}
@@ -1348,6 +1165,7 @@ La mayoría considera que un chatbot universitario tendría un impacto significa
 \itemglosario{Fine-Tuning}{Proceso de ajuste fino en el que un modelo preentrenado se somete a un entrenamiento adicional con un conjunto de datos específico para especializarlo en una tarea determinada.}
 \itemglosario{Focus Group}{Técnica de investigación cualitativa que reúne a un pequeño grupo de personas para discutir y analizar un tema, producto o servicio bajo la guía de un moderador.}
 \itemglosario{Framework}{Entorno de trabajo o marco conceptual que ofrece un conjunto estandarizado de conceptos, prácticas y criterios para enfocar un tipo de problemática particular.}
+\itemglosario{REST}{Representational State Transfer (Transferencia de Estado Representacional). Estilo de arquitectura de software que define un conjunto de restricciones para crear servicios web.}
 \renewcommand{\glosariovacio}{false}
 \newglossaryentry{glos:Alucinacion}{name={Alucinación}, type=glosario, description={Fenómeno en inteligencia artificial donde un modelo generativo produce información que parece plausible pero es incorrecta, ilógica o no está basada en los datos de entrada.}}
 \newglossaryentry{glos:LLM}{name={LLM}, type=glosario, description={Modelo de inteligencia artificial generativa entrenado con vastas cantidades de datos textuales, capaz de entender, resumir, traducir y predecir nuevo contenido.}}
@@ -1362,8 +1180,146 @@ La mayoría considera que un chatbot universitario tendría un impacto significa
 % ================================================================
 
 \newcommand{\anexos}{
-    \anexo{anexos}{
-     En los anexos se colocan los documentos, gráficos, tablas, imágenes u otros materiales complementarios que proporcionan información adicional relevante, pero que no forman parte del cuerpo principal del trabajo.
+    \anexo{Encuesta: Análisis de interés estudiantil UCAchat}{
+        \noindent Somos estudiantes egresados de la carrera Ingeniería Informática de la Universidad Centroamericana José Simeón Cañas y estamos realizando una investigación como parte de nuestro trabajo de graduación, por lo cual necesitamos de su colaboración completando el formulario que a continuación se le presenta.
+
+        \vspace{5pt}
+        \noindent \textbf{* Obligatoria} \\
+        \noindent * Este formulario registrará su nombre: \rule{0.3\textwidth}{0.4pt}
+
+        \begin{enumerate}[label=\textbf{\arabic*.}]
+            \item \textbf{En qué año de la carrera te encuentras actualmente}
+            \begin{itemize}[label=$\square$]
+                \item Primero 
+                \item Segundo
+                \item Tercero
+                \item Cuarto
+                \item Quinto
+            \end{itemize}
+
+            \item \textbf{Facultad en la que te encuentras actualmente *}
+            \begin{itemize}[label=$\square$]
+                \item Ciencias Sociales y Humanidades
+                \item Ciencias Económicas y Empresariales
+                \item Ingeniería y Arquitectura
+            \end{itemize}
+
+            \item \textbf{Has utilizado algún tipo de chatbot o IA *}
+            \begin{itemize}[label=$\square$]
+                \item Si
+                \item No
+            \end{itemize}
+
+            \item \textbf{¿Con qué frecuencia utilizas la inteligencia artificial? *} 
+            \escalaDiez{Nunca la utilizo}{La utilizo a diario}
+
+            \item \textbf{¿Para qué sueles utilizar la inteligencia artificial? *}
+            \begin{itemize}[label=$\square$]
+                \item Obtener información académica
+                \item Ocio
+                \item Ayuda en el trabajo
+                \item Ayuda en procesos de investigación
+                \item Ayuda en diseño de proyectos
+            \end{itemize}
+
+            \item \textbf{¿Cuánto confías en la respuesta de una inteligencia artificial? *}
+            \escalaDiez{Poco}{Demasiado}
+
+            \item \textbf{¿Qué trámites son los que se te han dificultado más? *}
+            \begin{itemize}[label=$\square$]
+                \item Inscripción de materias
+                \item Retiro de materias
+                \item Inscripción de laboratorios
+                \item Diferidos
+            \end{itemize}
+
+            \item \textbf{¿Dónde sueles buscar la información de la universidad cuando te generan incertidumbres? *}
+            \begin{itemize}[label=$\square$]
+                \item Página oficial de la Universidad
+                \item Correo directo por parte de los catedráticos
+                \item Por medio de amistades o compañeros
+                \item Redes sociales externas
+            \end{itemize}
+
+            \item \textbf{¿Cómo es la situación de buscar la información oficial de la universidad? *}
+            \escalaDiez{Muy difícil}{Muy fácil}
+
+            \item \textbf{Si la universidad tuviera un chatbot, ¿cuáles serían los documentos que le consultaría? *}
+            \begin{itemize}[label=$\square$]
+                \item Malla curricular
+                \item Mapa del campus
+                \item Reglamentos de la universidad
+                \item Horario de materias
+                \item Menú de la cafetería
+            \end{itemize}
+
+            \item \textbf{¿Qué tanto utilizarías el chatbot de la universidad? *}
+            \escalaDiez{Lo utilizaré de vez en cuando}{Lo utilizaré todos los días}
+
+            \item \textbf{¿Qué características te harían confiar más en el chatbot universitario? *}
+            \begin{itemize}[label=$\square$]
+                \item Que la información sea actualizada
+                \item Que cite fuentes oficiales
+                \item Que tenga lenguaje claro
+                \item Que permita contactar a personal real si es necesario
+            \end{itemize}
+
+            \item \textbf{¿Qué información te gustaría que el chatbot proporcionara además de la académica? *}
+            \begin{itemize}[label=$\square$]
+                \item Eventos y actividades
+                \item Noticias institucionales
+                \item Servicios estudiantiles (cafetería, biblioteca, parqueo)
+                \item Oportunidades laborales o pasantías
+            \end{itemize}
+
+            \item \textbf{¿Qué riesgos o preocupaciones tendrías al usar un chatbot universitario? *}
+            \begin{itemize}[label=$\square$]
+                \item Privacidad de datos
+                \item Información incorrecta
+                \item Dificultad para usarlo
+                \item Ninguna
+            \end{itemize}
+
+            \item \textbf{¿Qué tan satisfecho estás con los medios actuales para obtener información? *}
+            \escalaDiez{Nada satisfecho}{Muy satisfecho}
+
+            \item \textbf{¿Has tenido dificultades para comunicarte con personal administrativo o catedráticos? *}
+            \escalaDiez{Nunca}{Sí, frecuentemente}
+
+            \item \textbf{¿Qué tipo de lenguaje prefieres que use el chatbot? *}
+            \begin{itemize}[label=$\square$]
+                \item Formal y técnico
+                \item Amigable y sencillo
+                \item Neutro
+            \end{itemize}
+
+            \item \textbf{¿Preferirías que el chatbot tenga una personalidad (nombre o avatar)? *}
+            \begin{itemize}[label=$\square$]
+                \item Si
+                \item No
+                \item Me da igual
+            \end{itemize}
+
+            \item \textbf{¿Qué tan cómodo te sientes utilizando herramientas digitales o aplicaciones nuevas? *}
+            \begin{itemize}[label=$\square$]
+                \item Muy cómodo
+                \item Algo cómodo
+                \item Poco cómodo
+                \item Incómodo
+            \end{itemize}
+
+            \item \textbf{¿Consideras que el uso de IA en universidades puede mejorar la experiencia estudiantil? *}
+            \begin{itemize}[label=$\square$]
+                \item Si, mucho
+                \item Algo
+                \item Poco
+                \item No
+            \end{itemize}
+
+            \item \textbf{¿Crees que un chatbot podría reducir el tiempo que tardas en hacer trámites? *}
+            \escalaDiez{Nada útil}{Muy útil}
+
+        \end{enumerate}
     }
 }
 
